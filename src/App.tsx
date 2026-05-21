@@ -65,7 +65,7 @@ export default function App() {
   return (
     <main className="page">
       <section className="hero">
-        <div className="badge">Forward Deployed Engineer Candidate</div>
+        <div className="badge">Forward Deployed Engineer</div>
 
         <h1>Scott Jewett</h1>
 
@@ -76,27 +76,20 @@ export default function App() {
         <p className="heroText">
           Field-tested engineer with 35+ years of combined military,
           telecommunications, IT, cabling, wireless, data center, and
-          client-facing technical deployment experience.
+          client-facing technical deployment experience, now strengthened by
+          hands-on AI tools and automation.
         </p>
-
-        <div className="actions">
-          <a href="mailto:scott.jewett@techsgt.com">Email Scott</a>
-          <a href="https://techsgt.com" target="_blank" rel="noreferrer">
-            Visit TechSGT.com
-          </a>
-        </div>
       </section>
 
       <section className="section">
         <h2>Why Scott Fits Forward Deployed Engineering</h2>
 
         <p>
-          Scott’s background combines hands-on technical execution, field
-          problem solving, customer communication, military communications
-          discipline, and real-world deployment experience. He is comfortable
-          walking into unclear environments, identifying the technical problem,
-          building the solution, documenting the result, and leaving the client
-          with a working system.
+          Scott brings the mix of technical depth, field experience, and
+          client-facing communication that makes AI Forward Deployed Engineers
+          effective. He can step into ambiguous environments, define the
+          problem, build practical solutions, and carry delivery through to a
+          documented, working system.
         </p>
       </section>
 
@@ -136,6 +129,9 @@ export default function App() {
           will be able to ask questions about Scott’s background, deployment
           experience, technical strengths, and project history.
         </p>
+        <a className="calloutLink" href="/alex">
+          Ask Alex before you book the call.
+        </a>
       </section>
 
       <AlexAssistant />

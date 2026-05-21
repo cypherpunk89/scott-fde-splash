@@ -153,6 +153,21 @@ h2 {
   background: linear-gradient(135deg, rgba(37, 99, 235, 0.28), rgba(15, 23, 42, 0.95));
 }
 
+.calloutLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  margin-top: 18px;
+  padding: 0 18px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #f8fafc;
+  text-decoration: none;
+  font-weight: 800;
+}
+
 .alexButton {
   position: fixed;
   right: 24px;
@@ -168,13 +183,21 @@ h2 {
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
 }
 
-.alexAvatar {
-  width: 52px;
-  height: 52px;
+.alexAvatarWrap {
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
-  object-fit: cover;
   border: 2px solid #2563eb;
   background: #e5e7eb;
+  overflow: hidden;
+  flex: 0 0 auto;
+}
+
+.alexAvatarVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .alexButton strong,
@@ -334,6 +357,127 @@ h2 {
   text-decoration: none;
   font-weight: 800;
   white-space: nowrap;
+}
+
+.alexVideoIntro {
+  position: relative;
+  z-index: 1;
+  margin-top: 28px;
+}
+
+.alexVideoCard {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 1.05fr);
+  gap: 22px;
+  padding: 22px;
+  border-radius: 28px;
+  background: linear-gradient(160deg, rgba(15, 23, 42, 0.92), rgba(4, 10, 24, 0.96));
+  border: 1px solid rgba(125, 211, 252, 0.18);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+.alexVideoCopy {
+  display: grid;
+  align-content: center;
+  gap: 14px;
+}
+
+.alexVideoEyebrow {
+  margin: 0;
+  color: #7dd3fc;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.alexVideoCopy h2 {
+  margin: 0;
+  font-size: 34px;
+}
+
+.alexVideoCopy p {
+  margin: 0;
+  color: #cbd5e1;
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+.alexVideoNote {
+  color: #94a3b8 !important;
+  font-size: 14px !important;
+}
+
+.alexVideoLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  min-height: 44px;
+  padding: 0 16px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  color: #f8fafc;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.alexVideoFrame {
+  position: relative;
+  min-height: 280px;
+  overflow: hidden;
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at top, rgba(56, 189, 248, 0.2), transparent 48%),
+    linear-gradient(160deg, rgba(5, 11, 24, 0.96), rgba(2, 6, 23, 0.98));
+  border: 1px solid rgba(148, 163, 184, 0.16);
+}
+
+.alexVideoPlayer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #020617;
+  z-index: 2;
+}
+
+.alexVideoFallback {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  gap: 14px;
+  padding: 24px;
+  text-align: center;
+  z-index: 1;
+}
+
+.alexVideoFallback img {
+  width: 108px;
+  height: 108px;
+  border-radius: 28px;
+  object-fit: cover;
+  border: 3px solid rgba(125, 211, 252, 0.32);
+  box-shadow: 0 20px 45px rgba(14, 165, 233, 0.15);
+}
+
+.alexVideoFallback strong,
+.alexVideoFallback span {
+  display: block;
+}
+
+.alexVideoFallback strong {
+  color: #f8fafc;
+  font-size: 18px;
+}
+
+.alexVideoFallback span {
+  margin-top: 6px;
+  color: #94a3b8;
+  font-size: 14px;
 }
 
 .alexThanksHero h1 {
@@ -589,6 +733,23 @@ h2 {
 
   .alexBrandStrip a {
     width: 100%;
+  }
+
+  .alexVideoCard {
+    grid-template-columns: 1fr;
+    padding: 18px;
+  }
+
+  .alexVideoCopy h2 {
+    font-size: 28px;
+  }
+
+  .alexVideoLink {
+    width: 100%;
+  }
+
+  .alexVideoFrame {
+    min-height: 240px;
   }
 
   .alexActions a {

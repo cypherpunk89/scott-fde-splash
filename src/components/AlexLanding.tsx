@@ -1,7 +1,8 @@
 import { useEffect, type MouseEvent } from "react";
 
-import { alexUrl, scottWebsiteUrl } from "../alexConfig";
+import { alexAvatarUrl, alexUrl, scottWebsiteUrl } from "../alexConfig";
 import { analyticsEnabled, trackEvent, trackPageView } from "../analytics";
+import AlexVideoIntro from "./AlexVideoIntro";
 
 const alexThanksUrl = "/alex/thanks";
 
@@ -50,7 +51,7 @@ export default function AlexLanding() {
         <div className="alexHeader">
           <img
             className="alexPortrait"
-            src="https://techsgt.com/wp-content/uploads/2026/05/Alex-Avatar.png"
+            src={alexAvatarUrl}
             alt="Alex AI Assistant"
           />
 
@@ -76,8 +77,15 @@ export default function AlexLanding() {
           </a>
         </div>
 
-        <div className="alexActions">
-          <a href={alexUrl} target="_blank" rel="noreferrer" onClick={handleLaunchClick}>
+        <AlexVideoIntro />
+
+        <div className="alexActions" id="alex-launch">
+          <a
+            href={alexUrl}
+            target="_blank"
+            rel="noreferrer"
+            onClick={handleLaunchClick}
+          >
             Launch Alex
           </a>
           <a className="alexSecondaryAction" href="mailto:scott.jewett@techsgt.com">
