@@ -1,9 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, type MouseEvent } from "react";
 
+import { alexUrl, scottWebsiteUrl } from "../alexConfig";
 import { analyticsEnabled, trackEvent, trackPageView } from "../analytics";
 
-const alexUrl = "https://chatgpt.com/g/g-6a0e9d5bb5208191ae06038065b25845-alex";
-const scottWebsiteUrl = "https://techsgt.com";
+const alexThanksUrl = "/alex/thanks";
 
 export default function AlexLanding() {
   useEffect(() => {
@@ -18,11 +18,24 @@ export default function AlexLanding() {
     };
   }, []);
 
-  function handleLaunchClick() {
+  function handleLaunchClick(event: MouseEvent<HTMLAnchorElement>) {
+    event.preventDefault();
+
     trackEvent("launch_alex_click", {
       source: "alex_landing",
       destination: alexUrl,
+      next_step: alexThanksUrl,
     });
+
+    const alexWindow = window.open(alexUrl, "_blank", "noopener,noreferrer");
+
+    if (!alexWindow) {
+      trackEvent("launch_alex_popup_blocked", {
+        source: "alex_landing",
+      });
+    }
+
+    window.location.assign(alexThanksUrl);
   }
 
   return (
@@ -74,8 +87,8 @@ export default function AlexLanding() {
 
         <p className="alexAnalyticsNote">
           {analyticsEnabled()
-            ? "Visits to this page and Launch Alex clicks are now tracked in GA4."
-            : "Add VITE_GA_MEASUREMENT_ID in Netlify or a local .env file to enable visit and click tracking."}
+            ? "Visits to this page, the thank-you step, and downstream booking clicks are now tracked in GA4."
+            : "Add VITE_GA_MEASUREMENT_ID in Netlify or a local .env file to enable the Alex funnel tracking."}
         </p>
 
         <div className="alexGrid">

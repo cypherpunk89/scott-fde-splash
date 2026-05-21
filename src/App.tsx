@@ -1,5 +1,8 @@
 import AlexAssistant from "./components/AlexAssistant";
+import BookingPage from "./components/BookingPage";
+import BookingThanks from "./components/BookingThanks";
 import AlexLanding from "./components/AlexLanding";
+import AlexThanks from "./components/AlexThanks";
 
 const experience = [
   {
@@ -42,6 +45,18 @@ const strengths = [
 
 export default function App() {
   const pathname = window.location.pathname.replace(/\/+$/, "") || "/";
+
+  if (pathname === "/book/thanks") {
+    return <BookingThanks />;
+  }
+
+  if (pathname === "/book") {
+    return <BookingPage />;
+  }
+
+  if (pathname === "/alex/thanks") {
+    return <AlexThanks />;
+  }
 
   if (pathname === "/alex") {
     return <AlexLanding />;

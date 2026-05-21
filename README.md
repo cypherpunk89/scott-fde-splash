@@ -79,4 +79,8 @@ This site supports optional GA4 tracking for the Ask Alex funnel.
 - Set `VITE_GA_MEASUREMENT_ID=G-XXXXXXXXXX` in Netlify environment variables or a local `.env` file.
 - The home-page Ask Alex floating button sends an `ask_alex_cta_click` event.
 - The `/alex` landing page sends a `page_view` event.
-- The Launch Alex button sends a `launch_alex_click` event.
+- The Launch Alex button sends a `launch_alex_click` event, opens Alex in a new tab, and moves the current tab to `/alex/thanks`.
+- The `/alex/thanks` page sends its own `page_view` event so the funnel has a dedicated measurable step after launch.
+- The thank-you page tracks `book_scott_click`, `email_scott_click`, and `reopen_alex_click` events.
+- The booking form lives at `/book` and posts to a Netlify form named `scott-booking`, with completion redirected to `/book/thanks`.
+- The booking form and booking success pages add `page_view` tracking, and the success page records `booking_request_completed`.
