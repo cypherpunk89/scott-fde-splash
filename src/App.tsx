@@ -1,3 +1,5 @@
+import AlexAssistant from "./components/AlexAssistant";
+
 const experience = [
   {
     company: "TechSGT.com",
@@ -114,17 +116,7 @@ export default function App() {
         </p>
       </section>
 
-      <a className="alexButton" href="#" aria-label="Ask Alex">
-  <img
-    className="alexAvatar"
-    src="https://techsgt.com/wp-content/uploads/2026/05/Alex-Avatar.png"
-    alt="Alex AI Assistant"
-  />
-  <div>
-    <strong>Ask Alex</strong>
-    <small>Scott’s FDE assistant</small>
-  </div>
-</a>
+      <AlexAssistant />
     </main>
   );
 }
