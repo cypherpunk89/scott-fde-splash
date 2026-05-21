@@ -50,23 +50,74 @@ const experience = [
     text: "Managed and optimized data center systems, infrastructure, compliance, network operations, and technical support.",
   },
   {
+    company: "Hooters Restaurants of America",
+    role: "Manager",
+    dates: "2010 – 2013",
+    text: "Colorado Springs, CO. Led front-of-house and back-of-house recruiting, training, supervision, HR implementation, local store marketing, and day-to-day POS/back-office operations.",
+  },
+  {
+    company: "Blue Martini",
+    role: "Manager",
+    dates: "2004 – 2010",
+    text: "West Palm Beach, FL. Managed recruiting, training, scheduling, cash handling, and back-office workflows across multiple outlets.",
+  },
+  {
+    company: "TGI Friday's",
+    role: "Bartender",
+    dates: "2000 – 2004",
+    text: "San Diego, CA and West Palm Beach, FL. Worked across several locations in customer-facing service and bar operations.",
+  },
+  {
     company: "U.S. Navy / U.S. Marine Corps",
     role: "Communications / Tactical Network Specialist",
     dates: "1988 – 2000",
     text: "Built mission-critical communications experience across RF, satellite data, secure communications, field operations, and high-pressure technical environments.",
   },
+  {
+    company: "Wackenhut Security",
+    role: "Armed Security Officer",
+    dates: "1992 – 1996",
+    text: "Boca Raton and West Palm Beach, FL. Served in site supervisor and road supervisor roles supporting high-responsibility security operations.",
+  },
 ];
 
 const strengths = [
-  "Forward deployment",
-  "Client-facing technical execution",
-  "Network infrastructure",
-  "Low-voltage cabling",
-  "Wireless surveys",
-  "Data center operations",
-  "Troubleshooting under pressure",
-  "Field documentation",
-  "AI-assisted workflows",
+  {
+    label: "Forward deployment",
+    href: "https://techsgt.com/wp-content/uploads/2026/05/MARINE-COMMS-IN-DESERT-SHIELD-AND-DESERT-STORM.pdf",
+  },
+  {
+    label: "Client-facing technical execution",
+    href: "https://techsgt.com/med-1135-smyrna/",
+  },
+  {
+    label: "Network infrastructure",
+    href: scottWebsiteUrl,
+  },
+  {
+    label: "Low-voltage cabling",
+    href: scottWebsiteUrl,
+  },
+  {
+    label: "Wireless surveys",
+    href: scottWebsiteUrl,
+  },
+  {
+    label: "Data center operations",
+    href: scottWebsiteUrl,
+  },
+  {
+    label: "Troubleshooting under pressure",
+    href: scottWebsiteUrl,
+  },
+  {
+    label: "Field documentation",
+    href: scottWebsiteUrl,
+  },
+  {
+    label: "AI-assisted workflows",
+    href: scottWebsiteUrl,
+  },
 ];
 
 export default function App() {
@@ -148,9 +199,15 @@ export default function App() {
 
         <div className="grid">
           {strengths.map((item) => (
-            <div className="card" key={item}>
-              {item}
-            </div>
+            <a
+              className="card cardLink"
+              href={item.href}
+              key={item.label}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {item.label}
+            </a>
           ))}
         </div>
       </section>

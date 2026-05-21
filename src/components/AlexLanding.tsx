@@ -57,7 +57,7 @@ export default function AlexLanding() {
           />
 
           <div>
-            <p className="alexEyebrow">Scott Jewett's FDE guide</p>
+            <p className="alexEyebrow">Scott Jewett's Forward Deployed Engineer guide</p>
             <h1>Ask Alex before you book the call.</h1>
           </div>
         </div>
@@ -68,8 +68,8 @@ export default function AlexLanding() {
           and the kind of client-facing work he handles in the field.
         </p>
 
-        <AlexVideoIntro />
         <ScottVideoIntro />
+        <AlexVideoIntro />
 
         <div className="alexActions" id="alex-launch">
           <a
@@ -87,7 +87,7 @@ export default function AlexLanding() {
 
         <div className="alexGrid">
           <article className="alexPanel">
-            <h2>Copy/paste these good questions into your chat with Alex</h2>
+            <h2>Paste these starter questions into Alex</h2>
             <ul>
               <li>What field deployment work has Scott handled recently?</li>
               <li>Which environments fit his networking and cabling background?</li>

@@ -3,7 +3,7 @@ import { scottIntroVideoUrl } from "../alexConfig";
 export default function ScottVideoIntro() {
   return (
     <section className="alexVideoIntro" aria-labelledby="scott-video-title">
-      <div className="alexVideoCard">
+      <div className="alexVideoCard alexVideoCardReverse">
         <div className="alexVideoFrame">
           <video className="alexVideoPlayer" controls preload="metadata">
             <source src={scottIntroVideoUrl} type="video/mp4" />
@@ -20,8 +20,7 @@ export default function ScottVideoIntro() {
             Alex.
           </p>
           <p className="alexVideoNote">
-            Preview Scott&apos;s intro here in the same format as the Alex card,
-            with the video leading and the copy alongside it.
+            Preview Scott&apos;s intro here before you launch Alex.
           </p>
         </div>
       </div>
