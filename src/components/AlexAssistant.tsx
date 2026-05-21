@@ -34,6 +34,8 @@ export default function AlexAssistant() {
       return;
     }
 
+    video.pause();
+    video.currentTime = 0;
     video.muted = false;
     video.volume = 0.85;
 

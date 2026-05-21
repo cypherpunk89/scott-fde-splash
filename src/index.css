@@ -52,67 +52,32 @@ a {
 }
 
 .heroVideoDock {
-  display: grid;
-  justify-items: start;
-  gap: 8px;
-  width: 132px;
+  width: 180px;
 }
 
 .heroVideoFrame {
   position: relative;
   width: 100%;
-  aspect-ratio: 1;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
-  border-radius: 24px;
+  border-radius: 20px;
   border: 1px solid rgba(125, 211, 252, 0.18);
-  background:
-    url("https://i.ytimg.com/vi/KOmTGSnDbRs/hqdefault.jpg") center / cover no-repeat,
-    rgba(2, 6, 23, 0.9);
+  background: #020617;
   box-shadow: 0 18px 48px rgba(2, 6, 23, 0.35);
   transform: rotate(-8deg);
 }
 
-.heroVideoFrame::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at top, rgba(59, 130, 246, 0.22), transparent 56%),
-    rgba(2, 6, 23, 0.18);
-  pointer-events: none;
-}
-
 .heroVideoEmbed {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 225%;
-  height: 225%;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   border: 0;
+  display: block;
+  object-fit: cover;
+  background: #020617;
   z-index: 1;
-  opacity: 0.25;
   pointer-events: none;
-  filter: saturate(1.05) contrast(1.05);
-  transform: translate(-50%, -50%);
-}
-
-.heroAudioToggle {
-  justify-self: start;
-  margin-left: 8px;
-  padding: 6px 10px;
-  border: 1px solid rgba(125, 211, 252, 0.18);
-  border-radius: 999px;
-  background: rgba(15, 23, 42, 0.78);
-  color: #cbd5e1;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  cursor: pointer;
-}
-
-.heroAudioToggle:focus-visible {
-  outline: 2px solid #93c5fd;
-  outline-offset: 2px;
 }
 
 .heroAvatar {
@@ -181,13 +146,11 @@ h1 {
 
   .heroVideoDock,
   .heroAvatar {
-    width: 96px;
+    width: 148px;
   }
 
-  .heroAudioToggle {
-    margin-left: 2px;
-    padding: 5px 8px;
-    font-size: 10px;
+  .heroAvatar {
+    width: 96px;
   }
 }
 
@@ -206,12 +169,11 @@ h1 {
 
   .heroVideoDock,
   .heroAvatar {
-    width: 104px;
+    width: 128px;
   }
 
-  .heroAudioToggle {
-    justify-self: center;
-    margin-left: 0;
+  .heroAvatar {
+    width: 104px;
   }
 }
 

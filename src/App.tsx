@@ -1,87 +1,26 @@
-import { useRef, useState, type MouseEvent } from "react";
-
 import AlexAssistant from "./components/AlexAssistant";
-import { scottWebsiteUrl } from "./alexConfig";
+import { alexAvatarUrl, alexIntroVideoUrl, scottWebsiteUrl } from "./alexConfig";
 import BookingPage from "./components/BookingPage";
 import BookingThanks from "./components/BookingThanks";
 import AlexLanding from "./components/AlexLanding";
 import AlexThanks from "./components/AlexThanks";
 
-const heroVideoId = "KOmTGSnDbRs";
-
-function sendHeroVideoCommand(
-  iframe: HTMLIFrameElement | null,
-  func: string,
-  args: unknown[] = [],
-) {
-  iframe?.contentWindow?.postMessage(
-    JSON.stringify({
-      event: "command",
-      func,
-      args,
-    }),
-    "https://www.youtube.com",
-  );
-}
-
 function HeroVideoDock() {
-  const iframeRef = useRef<HTMLIFrameElement | null>(null);
-  const [audioEnabled, setAudioEnabled] = useState(false);
-  const heroVideoUrl =
-    `https://www.youtube.com/embed/${heroVideoId}` +
-    `?autoplay=1&mute=1&controls=0&loop=1&playlist=${heroVideoId}` +
-    `&playsinline=1&rel=0&modestbranding=1&enablejsapi=1` +
-    `&origin=${encodeURIComponent(window.location.origin)}`;
-
-  function handlePlayerLoad() {
-    sendHeroVideoCommand(iframeRef.current, "mute");
-    sendHeroVideoCommand(iframeRef.current, "playVideo");
-  }
-
-  function handleAudioToggle(event: MouseEvent<HTMLButtonElement>) {
-    event.preventDefault();
-
-    const iframe = iframeRef.current;
-
-    if (!iframe) {
-      return;
-    }
-
-    if (audioEnabled) {
-      sendHeroVideoCommand(iframe, "mute");
-      setAudioEnabled(false);
-      return;
-    }
-
-    sendHeroVideoCommand(iframe, "playVideo");
-    sendHeroVideoCommand(iframe, "unMute");
-    sendHeroVideoCommand(iframe, "setVolume", [65]);
-    setAudioEnabled(true);
-  }
-
   return (
     <div className="heroVideoDock">
       <div className="heroVideoFrame" aria-hidden="true">
-        <iframe
-          ref={iframeRef}
+        <video
           className="heroVideoEmbed"
-          src={heroVideoUrl}
-          title="Scott profile intro video"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerPolicy="strict-origin-when-cross-origin"
+          src={alexIntroVideoUrl}
+          poster={alexAvatarUrl}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
           tabIndex={-1}
-          onLoad={handlePlayerLoad}
         />
       </div>
-
-      <button
-        type="button"
-        className="heroAudioToggle"
-        aria-pressed={audioEnabled}
-        onClick={handleAudioToggle}
-      >
-        {audioEnabled ? "Mute" : "Enable sound"}
-      </button>
     </div>
   );
 }
