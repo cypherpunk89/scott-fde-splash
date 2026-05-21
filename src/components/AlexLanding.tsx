@@ -3,6 +3,7 @@ import { useEffect, type MouseEvent } from "react";
 import { alexAvatarUrl, alexUrl } from "../alexConfig";
 import { trackEvent, trackPageView } from "../analytics";
 import AlexVideoIntro from "./AlexVideoIntro";
+import ScottVideoIntro from "./ScottVideoIntro";
 
 const alexThanksUrl = "/alex/thanks";
 
@@ -68,6 +69,7 @@ export default function AlexLanding() {
         </p>
 
         <AlexVideoIntro />
+        <ScottVideoIntro />
 
         <div className="alexActions" id="alex-launch">
           <a

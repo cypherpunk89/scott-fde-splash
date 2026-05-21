@@ -1,5 +1,10 @@
 import AlexAssistant from "./components/AlexAssistant";
-import { alexAvatarUrl, alexIntroVideoUrl, scottWebsiteUrl } from "./alexConfig";
+import {
+  alexAvatarUrl,
+  alexIntroVideoUrl,
+  scottIntroVideoUrl,
+  scottWebsiteUrl,
+} from "./alexConfig";
 import BookingPage from "./components/BookingPage";
 import BookingThanks from "./components/BookingThanks";
 import AlexLanding from "./components/AlexLanding";
@@ -96,9 +101,16 @@ export default function App() {
             rel="noreferrer"
             aria-label="Visit TechSGT.com"
           >
-            <img
-              src="https://techsgt.com/wp-content/uploads/2026/05/TechSGT_Avatar.jpeg"
-              alt="Portrait of Scott Jewett"
+            <video
+              className="heroAvatarMedia"
+              src={scottIntroVideoUrl}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              aria-hidden="true"
+              tabIndex={-1}
             />
           </a>
         </div>

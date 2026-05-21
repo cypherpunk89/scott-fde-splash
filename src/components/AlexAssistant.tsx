@@ -7,6 +7,23 @@ export default function AlexAssistant() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [audioEnabled, setAudioEnabled] = useState(false);
 
+  function resetToMutedLoop() {
+    const video = videoRef.current;
+
+    if (!video) {
+      return;
+    }
+
+    video.muted = true;
+    video.currentTime = 0;
+    video.loop = true;
+    setAudioEnabled(false);
+
+    void video.play().catch(() => {
+      // If autoplay is blocked after resetting, keep the control state muted.
+    });
+  }
+
   function handleClick() {
     trackEvent("ask_alex_cta_click", {
       source: "floating_button",
@@ -25,8 +42,7 @@ export default function AlexAssistant() {
     }
 
     if (audioEnabled) {
-      video.muted = true;
-      setAudioEnabled(false);
+      resetToMutedLoop();
       trackEvent("ask_alex_audio_toggle", {
         source: "floating_button",
         state: "muted",
@@ -36,6 +52,7 @@ export default function AlexAssistant() {
 
     video.pause();
     video.currentTime = 0;
+  video.loop = false;
     video.muted = false;
     video.volume = 0.85;
 
@@ -45,13 +62,21 @@ export default function AlexAssistant() {
         setAudioEnabled(true);
         trackEvent("ask_alex_audio_toggle", {
           source: "floating_button",
-          state: "playing_with_sound",
+          state: "playing_from_start_with_sound",
         });
       })
       .catch(() => {
         video.muted = true;
         setAudioEnabled(false);
       });
+  }
+
+  function handleAudioEnded() {
+    resetToMutedLoop();
+    trackEvent("ask_alex_audio_toggle", {
+      source: "floating_button",
+      state: "auto_muted_after_one_run",
+    });
   }
 
   return (
@@ -76,11 +101,12 @@ export default function AlexAssistant() {
             ref={videoRef}
             className="alexAvatarVideo"
             autoPlay
-            loop
+            loop={!audioEnabled}
             muted={!audioEnabled}
             playsInline
             preload="metadata"
             poster={alexAvatarUrl}
+            onEnded={handleAudioEnded}
           >
             <source src={alexIntroVideoUrl} type="video/mp4" />
           </video>
