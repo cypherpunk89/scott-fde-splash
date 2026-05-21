@@ -277,6 +277,49 @@ h2 {
   color: #cbd5e1;
 }
 
+.alexBrandStrip {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-top: 28px;
+  padding: 18px 20px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, rgba(8, 47, 73, 0.8), rgba(37, 99, 235, 0.2));
+  border: 1px solid rgba(125, 211, 252, 0.18);
+}
+
+.alexBrandLabel {
+  margin: 0 0 6px;
+  color: #7dd3fc;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.alexBrandStrip strong {
+  display: block;
+  font-size: 20px;
+}
+
+.alexBrandStrip a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 18px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #f8fafc;
+  text-decoration: none;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
 .alexActions {
   position: relative;
   z-index: 1;
@@ -304,6 +347,14 @@ h2 {
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(148, 163, 184, 0.2);
   box-shadow: none;
+}
+
+.alexAnalyticsNote {
+  position: relative;
+  z-index: 1;
+  margin: 16px 0 0;
+  color: #94a3b8;
+  font-size: 14px;
 }
 
 .alexGrid {
@@ -374,6 +425,15 @@ h2 {
 
   .alexIntro {
     font-size: 18px;
+  }
+
+  .alexBrandStrip {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .alexBrandStrip a {
+    width: 100%;
   }
 
   .alexActions a {

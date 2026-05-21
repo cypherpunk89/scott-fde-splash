@@ -1,6 +1,30 @@
+import { useEffect } from "react";
+
+import { analyticsEnabled, trackEvent, trackPageView } from "../analytics";
+
 const alexUrl = "https://chatgpt.com/g/g-6a0e9d5bb5208191ae06038065b25845-alex";
+const scottWebsiteUrl = "https://techsgt.com";
 
 export default function AlexLanding() {
+  useEffect(() => {
+    const nextTitle = "Ask Alex | Scott Jewett";
+    const previousTitle = document.title;
+
+    document.title = nextTitle;
+    trackPageView("/alex", nextTitle);
+
+    return () => {
+      document.title = previousTitle;
+    };
+  }, []);
+
+  function handleLaunchClick() {
+    trackEvent("launch_alex_click", {
+      source: "alex_landing",
+      destination: alexUrl,
+    });
+  }
+
   return (
     <main className="alexPage">
       <section className="alexHero">
@@ -29,14 +53,30 @@ export default function AlexLanding() {
           and the kind of client-facing work he handles in the field.
         </p>
 
+        <div className="alexBrandStrip">
+          <div>
+            <p className="alexBrandLabel">Built for Scott Jewett</p>
+            <strong>Veteran-led field engineering backed by TechSGT.com</strong>
+          </div>
+          <a href={scottWebsiteUrl} target="_blank" rel="noreferrer">
+            Visit TechSGT.com
+          </a>
+        </div>
+
         <div className="alexActions">
-          <a href={alexUrl} target="_blank" rel="noreferrer">
+          <a href={alexUrl} target="_blank" rel="noreferrer" onClick={handleLaunchClick}>
             Launch Alex
           </a>
           <a className="alexSecondaryAction" href="mailto:scott.jewett@techsgt.com">
             Email Scott directly
           </a>
         </div>
+
+        <p className="alexAnalyticsNote">
+          {analyticsEnabled()
+            ? "Visits to this page and Launch Alex clicks are now tracked in GA4."
+            : "Add VITE_GA_MEASUREMENT_ID in Netlify or a local .env file to enable visit and click tracking."}
+        </p>
 
         <div className="alexGrid">
           <article className="alexPanel">

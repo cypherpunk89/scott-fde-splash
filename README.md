@@ -71,3 +71,12 @@ export default defineConfig([
   },
 ])
 ```
+
+## Analytics
+
+This site supports optional GA4 tracking for the Ask Alex funnel.
+
+- Set `VITE_GA_MEASUREMENT_ID=G-XXXXXXXXXX` in Netlify environment variables or a local `.env` file.
+- The home-page Ask Alex floating button sends an `ask_alex_cta_click` event.
+- The `/alex` landing page sends a `page_view` event.
+- The Launch Alex button sends a `launch_alex_click` event.

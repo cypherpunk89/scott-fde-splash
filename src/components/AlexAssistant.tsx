@@ -1,9 +1,19 @@
+import { trackEvent } from "../analytics";
+
 export default function AlexAssistant() {
+  function handleClick() {
+    trackEvent("ask_alex_cta_click", {
+      source: "floating_button",
+      destination: "/alex",
+    });
+  }
+
   return (
     <a
       className="alexButton"
       href="/alex"
       aria-label="Ask Alex"
+      onClick={handleClick}
     >
       <img
         className="alexAvatar"
