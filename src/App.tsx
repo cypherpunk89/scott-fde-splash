@@ -1,4 +1,5 @@
 import AlexAssistant from "./components/AlexAssistant";
+import AlexLanding from "./components/AlexLanding";
 
 const experience = [
   {
@@ -40,6 +41,12 @@ const strengths = [
 ];
 
 export default function App() {
+  const pathname = window.location.pathname.replace(/\/+$/, "") || "/";
+
+  if (pathname === "/alex") {
+    return <AlexLanding />;
+  }
+
   return (
     <main className="page">
       <section className="hero">
