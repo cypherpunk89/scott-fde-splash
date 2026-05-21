@@ -168,15 +168,13 @@ h2 {
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
 }
 
-.alexButton span {
-  display: grid;
-  place-items: center;
-  width: 42px;
-  height: 42px;
+.alexAvatar {
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
-  background: #2563eb;
-  color: white;
-  font-weight: 900;
+  object-fit: cover;
+  border: 2px solid #2563eb;
+  background: #e5e7eb;
 }
 
 .alexButton strong,

@@ -115,12 +115,16 @@ export default function App() {
       </section>
 
       <a className="alexButton" href="#" aria-label="Ask Alex">
-        <span>AI</span>
-        <div>
-          <strong>Ask Alex</strong>
-          <small>Scott’s FDE assistant</small>
-        </div>
-      </a>
+  <img
+    className="alexAvatar"
+    src="https://techsgt.com/wp-content/uploads/2026/05/Alex-Avatar.png"
+    alt="Alex AI Assistant"
+  />
+  <div>
+    <strong>Ask Alex</strong>
+    <small>Scott’s FDE assistant</small>
+  </div>
+</a>
     </main>
   );
 }
