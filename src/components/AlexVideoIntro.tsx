@@ -1,12 +1,6 @@
 import { alexAvatarUrl, alexIntroVideoUrl } from "../alexConfig";
 
-type AlexVideoIntroProps = {
-  launchTargetId?: string;
-};
-
-export default function AlexVideoIntro({
-  launchTargetId = "alex-launch",
-}: AlexVideoIntroProps) {
+export default function AlexVideoIntro() {
   return (
     <section className="alexVideoIntro" aria-labelledby="alex-video-title">
       <div className="alexVideoCard">
@@ -20,12 +14,8 @@ export default function AlexVideoIntro({
             product execution.
           </p>
           <p className="alexVideoNote">
-            A short intro video will appear here once the generated avatar video
-            is added.
+            Preview Alex&apos;s intro here before launching the assistant.
           </p>
-          <a className="alexVideoLink" href={`#${launchTargetId}`}>
-            Jump to Launch Alex
-          </a>
         </div>
 
         <div className="alexVideoFrame">

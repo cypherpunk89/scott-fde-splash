@@ -6,7 +6,7 @@ import {
   scottEmailUrl,
   scottWebsiteUrl,
 } from "../alexConfig";
-import { analyticsEnabled, trackEvent, trackPageView } from "../analytics";
+import { trackEvent, trackPageView } from "../analytics";
 
 export default function AlexThanks() {
   useEffect(() => {
@@ -92,12 +92,6 @@ export default function AlexThanks() {
           <a href={scottWebsiteUrl} target="_blank" rel="noreferrer" onClick={handleWebsiteClick}>
             visit TechSGT.com
           </a>
-        </p>
-
-        <p className="alexAnalyticsNote">
-          {analyticsEnabled()
-            ? "GA4 now sees this thank-you step separately from the Launch Alex click, plus booking and reopen clicks from this page."
-            : "Set VITE_GA_MEASUREMENT_ID to track this thank-you step and the booking flow from it."}
         </p>
 
         <div className="alexGrid">

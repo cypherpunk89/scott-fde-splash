@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 import { bookingThanksUrl, scottEmailUrl } from "../alexConfig";
-import { analyticsEnabled, trackPageView } from "../analytics";
+import { trackPageView } from "../analytics";
 
 export default function BookingPage() {
   useEffect(() => {
@@ -131,12 +131,6 @@ export default function BookingPage() {
             <div className="alexInlineActions">
               <a href={scottEmailUrl}>Email Scott</a>
             </div>
-
-            <p className="alexAnalyticsNote bookingNote">
-              {analyticsEnabled()
-                ? "GA4 tracks this booking-form page separately from the Alex thank-you step."
-                : "GA4 page tracking for this booking step activates automatically when VITE_GA_MEASUREMENT_ID is set."}
-            </p>
           </aside>
         </div>
       </section>

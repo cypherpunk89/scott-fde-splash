@@ -19,6 +19,7 @@ a {
 }
 
 .hero {
+  position: relative;
   max-width: 1000px;
   margin: 0 auto;
   padding: 72px 32px;
@@ -29,6 +30,38 @@ a {
   border: 1px solid rgba(148, 163, 184, 0.25);
   border-radius: 32px;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+}
+
+.hero .badge,
+.hero h1,
+.hero .subtitle,
+.hero .heroText {
+  position: relative;
+  z-index: 1;
+}
+
+.heroAvatar {
+  display: block;
+  position: absolute;
+  top: 28px;
+  right: 28px;
+  z-index: 0;
+  width: 132px;
+  aspect-ratio: 1;
+  padding: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  background: rgba(15, 23, 42, 0.92);
+  border: 1px solid rgba(125, 211, 252, 0.18);
+  box-shadow: 0 18px 48px rgba(2, 6, 23, 0.4);
+}
+
+.heroAvatar img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 .badge {
@@ -62,6 +95,26 @@ h1 {
   font-size: 20px;
   line-height: 1.65;
   color: #cbd5e1;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    padding-top: 108px;
+  }
+
+  .heroAvatar {
+    top: 20px;
+    right: 20px;
+    width: 96px;
+  }
+}
+
+@media (max-width: 640px) {
+  .heroAvatar {
+    position: static;
+    width: 104px;
+    margin: 0 auto 20px;
+  }
 }
 
 .actions {
@@ -168,10 +221,36 @@ h2 {
   font-weight: 800;
 }
 
-.alexButton {
+.alexAssistantDock {
   position: fixed;
   right: 24px;
   bottom: 24px;
+  z-index: 20;
+  display: grid;
+  justify-items: end;
+  gap: 10px;
+}
+
+.alexAudioToggle {
+  min-height: 36px;
+  padding: 0 14px;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.92);
+  color: #e2e8f0;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.alexAudioToggle[aria-pressed="true"] {
+  background: linear-gradient(135deg, #38bdf8, #2563eb);
+  color: #f8fafc;
+}
+
+.alexButton {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -276,9 +355,11 @@ h2 {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 112px minmax(0, 1fr);
-  gap: 24px;
-  align-items: center;
+  max-width: 960px;
+  margin: 0 auto;
+  grid-template-columns: 128px minmax(0, 1fr);
+  gap: 32px;
+  align-items: start;
 }
 
 .alexPortrait {
@@ -301,7 +382,7 @@ h2 {
 
 .alexHeader h1 {
   margin: 0;
-  max-width: 9ch;
+  max-width: 12ch;
   font-size: clamp(48px, 8vw, 88px);
   line-height: 0.96;
 }
@@ -309,54 +390,11 @@ h2 {
 .alexIntro {
   position: relative;
   z-index: 1;
-  max-width: 760px;
-  margin: 28px 0 0;
+  max-width: 960px;
+  margin: 28px auto 0;
   font-size: 20px;
   line-height: 1.7;
   color: #cbd5e1;
-}
-
-.alexBrandStrip {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-  margin-top: 28px;
-  padding: 18px 20px;
-  border-radius: 22px;
-  background: linear-gradient(135deg, rgba(8, 47, 73, 0.8), rgba(37, 99, 235, 0.2));
-  border: 1px solid rgba(125, 211, 252, 0.18);
-}
-
-.alexBrandLabel {
-  margin: 0 0 6px;
-  color: #7dd3fc;
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-
-.alexBrandStrip strong {
-  display: block;
-  font-size: 20px;
-}
-
-.alexBrandStrip a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 48px;
-  padding: 0 18px;
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.09);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: #f8fafc;
-  text-decoration: none;
-  font-weight: 800;
-  white-space: nowrap;
 }
 
 .alexVideoIntro {
@@ -408,23 +446,12 @@ h2 {
   font-size: 14px !important;
 }
 
-.alexVideoLink {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: fit-content;
-  min-height: 44px;
-  padding: 0 16px;
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(148, 163, 184, 0.16);
-  color: #f8fafc;
-  text-decoration: none;
-  font-weight: 700;
-}
-
 .alexVideoFrame {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 16 / 9;
   min-height: 280px;
   overflow: hidden;
   border-radius: 24px;
@@ -435,11 +462,11 @@ h2 {
 }
 
 .alexVideoPlayer {
-  position: absolute;
-  inset: 0;
+  position: relative;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
   background: #020617;
   z-index: 2;
 }
@@ -511,14 +538,6 @@ h2 {
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(148, 163, 184, 0.2);
   box-shadow: none;
-}
-
-.alexAnalyticsNote {
-  position: relative;
-  z-index: 1;
-  margin: 16px 0 0;
-  color: #94a3b8;
-  font-size: 14px;
 }
 
 .alexSupportLinks {
@@ -689,9 +708,13 @@ h2 {
     padding: 24px;
   }
 
-  .alexButton {
+  .alexAssistantDock {
     left: 16px;
     right: 16px;
+    bottom: 16px;
+  }
+
+  .alexButton {
     justify-content: center;
   }
 
@@ -726,15 +749,6 @@ h2 {
     display: none;
   }
 
-  .alexBrandStrip {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-
-  .alexBrandStrip a {
-    width: 100%;
-  }
-
   .alexVideoCard {
     grid-template-columns: 1fr;
     padding: 18px;
@@ -742,10 +756,6 @@ h2 {
 
   .alexVideoCopy h2 {
     font-size: 28px;
-  }
-
-  .alexVideoLink {
-    width: 100%;
   }
 
   .alexVideoFrame {

@@ -1,7 +1,7 @@
 import { useEffect, type MouseEvent } from "react";
 
-import { alexAvatarUrl, alexUrl, scottWebsiteUrl } from "../alexConfig";
-import { analyticsEnabled, trackEvent, trackPageView } from "../analytics";
+import { alexAvatarUrl, alexUrl } from "../alexConfig";
+import { trackEvent, trackPageView } from "../analytics";
 import AlexVideoIntro from "./AlexVideoIntro";
 
 const alexThanksUrl = "/alex/thanks";
@@ -67,16 +67,6 @@ export default function AlexLanding() {
           and the kind of client-facing work he handles in the field.
         </p>
 
-        <div className="alexBrandStrip">
-          <div>
-            <p className="alexBrandLabel">Built for Scott Jewett</p>
-            <strong>Veteran-led field engineering backed by TechSGT.com</strong>
-          </div>
-          <a href={scottWebsiteUrl} target="_blank" rel="noreferrer">
-            Visit TechSGT.com
-          </a>
-        </div>
-
         <AlexVideoIntro />
 
         <div className="alexActions" id="alex-launch">
@@ -93,15 +83,9 @@ export default function AlexLanding() {
           </a>
         </div>
 
-        <p className="alexAnalyticsNote">
-          {analyticsEnabled()
-            ? "Visits to this page, the thank-you step, and downstream booking clicks are now tracked in GA4."
-            : "Add VITE_GA_MEASUREMENT_ID in Netlify or a local .env file to enable the Alex funnel tracking."}
-        </p>
-
         <div className="alexGrid">
           <article className="alexPanel">
-            <h2>Good questions to ask</h2>
+            <h2>Copy/paste these good questions into your chat with Alex</h2>
             <ul>
               <li>What field deployment work has Scott handled recently?</li>
               <li>Which environments fit his networking and cabling background?</li>

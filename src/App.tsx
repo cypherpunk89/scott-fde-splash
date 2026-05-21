@@ -1,4 +1,5 @@
 import AlexAssistant from "./components/AlexAssistant";
+import { scottWebsiteUrl } from "./alexConfig";
 import BookingPage from "./components/BookingPage";
 import BookingThanks from "./components/BookingThanks";
 import AlexLanding from "./components/AlexLanding";
@@ -65,6 +66,19 @@ export default function App() {
   return (
     <main className="page">
       <section className="hero">
+        <a
+          className="heroAvatar"
+          href={scottWebsiteUrl}
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Visit TechSGT.com"
+        >
+          <img
+            src="https://techsgt.com/wp-content/uploads/2026/05/TechSGT_Avatar.jpeg"
+            alt="Portrait of Scott Jewett"
+          />
+        </a>
+
         <div className="badge">Forward Deployed Engineer</div>
 
         <h1>Scott Jewett</h1>
