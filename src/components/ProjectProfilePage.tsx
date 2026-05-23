@@ -10,6 +10,10 @@ type FeatureSection = {
 type CopySection = {
   title: string;
   paragraphs: string[];
+  links?: {
+    label: string;
+    href: string;
+  }[];
 };
 
 export type ProjectProfilePageContent = {
@@ -20,6 +24,7 @@ export type ProjectProfilePageContent = {
   overview: CopySection;
   featureSections: FeatureSection[];
   copySections: CopySection[];
+  quote?: string;
 };
 
 type ProjectProfilePageProps = {
@@ -80,8 +85,28 @@ export default function ProjectProfilePage({ content }: ProjectProfilePageProps)
           {section.paragraphs.map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>
           ))}
+          {section.links ? (
+            <div className="projectLinkList">
+              {section.links.map((link) => (
+                <a
+                  href={link.href}
+                  key={link.href}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          ) : null}
         </section>
       ))}
+
+      {content.quote ? (
+        <section className="projectDetailSection projectQuoteBlock">
+          <p>{content.quote}</p>
+        </section>
+      ) : null}
 
       <section className="projectDetailSection callout">
         <h2>Next Step</h2>

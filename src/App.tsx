@@ -127,18 +127,18 @@ const pressureBuiltProjects = [
   {
     title: "AI Pro Se GPT Case Vault",
     description:
-      "A legal AI workspace designed to help pro se litigants organize case documents, timelines, discovery, exhibits, and AI-ready case exports. Built from direct experience navigating federal litigation, discovery disputes, and document-heavy workflows.",
+      "A legal workflow workspace shaped by the grind of federal litigation: sorting filings, evidence, discovery, timelines, and exports when the paperwork starts to outrun the person carrying it.",
     positioning:
-      "Human-in-the-loop legal AI, document intelligence, high-stakes workflow design, AI-assisted case management.",
+      "Human-in-the-loop legal workflows, evidence organization, document-heavy case management.",
     buttonLabel: "View Case Vault Concept",
     href: "/case-vault",
   },
   {
     title: "WebWalletX",
     description:
-      "A financial command center concept for tracking accounts, debt, payments, and digital cash workflows in one centralized app. Built from Scott's earlier Complete Cash Control software concept and expanded for modern AI-assisted financial operations.",
+      "A financial command center for keeping accounts, debt, payments, and cash movement visible in one place. It grows out of Scott's earlier Complete Cash Control idea and a field mindset for keeping systems understandable.",
     positioning:
-      "AI-assisted financial operations, digital cash workflow design, user-facing product deployment.",
+      "Cash control, operational visibility, financial dashboards, user-facing product design.",
     buttonLabel: "View WebWalletX Concept",
     href: "/webwalletx",
   },
@@ -147,22 +147,22 @@ const pressureBuiltProjects = [
 const mainProjects = [
   {
     title: "Case Vault",
-    text: "Human-in-the-loop legal AI workspace for document-heavy pro se litigation workflows.",
+    text: "A practical case workspace for keeping evidence, discovery, timelines, and filings in order under pressure. Powered by the WebDime utility model.",
     href: "/case-vault",
   },
   {
     title: "WebWalletX",
-    text: "AI-assisted financial command center for accounts, payments, debt, and cash workflows.",
+    text: "A cash-control dashboard concept for making accounts, payments, debt, and money movement easier to read. Powered by the WebDime utility model.",
     href: "/webwalletx",
   },
   {
     title: "Anthropic Fellows",
-    text: "Candidate profile focused on AI reliability, human systems, and field deployment pressure.",
+    text: "A research-oriented profile around AI reliability when people are working with incomplete information.",
     href: "/anthropic-fellows",
   },
   {
     title: "OpenAI FDE",
-    text: "Forward Deployed Engineer profile connecting infrastructure execution with AI workflows.",
+    text: "A field-first FDE profile built around deployments, troubleshooting, communication, and recovery.",
     href: "/openai-fde",
   },
 ];
@@ -171,15 +171,15 @@ const projectPages: ProjectProfilePageContent[] = [
   {
     path: "/case-vault",
     title: "AI Pro Se GPT Case Vault",
-    eyebrow: "Legal AI workflow infrastructure",
+    eyebrow: "Legal workflow built from pressure",
     subtitle:
-      "AI-assisted legal workflow infrastructure built from real federal litigation experience.",
+      "A practical legal workflow system shaped by real federal litigation, large document sets, and the need to stay oriented.",
     overview: {
       title: "Overview",
       paragraphs: [
-        "AI Pro Se GPT Case Vault is a human-in-the-loop AI workspace for pro se litigants who need operational clarity across complex legal materials.",
-        "The platform is designed to organize exhibits, discovery, timelines, filings, and AI-ready exports in one structured environment.",
-        "It is built from real-world litigation pressure and document-heavy workflows, with an emphasis on workflow visibility and preparation rather than legal advice.",
+        "AI Pro Se GPT Case Vault comes from the practical strain of navigating federal litigation without a large support staff behind you.",
+        "The idea is simple: when filings, exhibits, discovery responses, deadlines, transcripts, and notes start piling up, the human needs a way to stay oriented. The workspace is meant to help organize the material, preserve context, and prepare clean exports for AI review or human review.",
+        "It is not positioned as legal advice. It is an operating system for case materials: what happened, where the evidence is, what still needs attention, and how to keep the record usable when the workload gets heavy.",
       ],
     },
     featureSections: [
@@ -210,9 +210,22 @@ const projectPages: ProjectProfilePageContent[] = [
     ],
     copySections: [
       {
+        title: "WDM Access Model",
+        paragraphs: [
+          "AI Pro Se GPT Case Vault is planned as part of the broader WebDime utility ecosystem. Users would hold WDM to access protected tools, case organization workflows, and AI-assisted workspace features. The focus is utility access, not financial speculation.",
+        ],
+        links: [
+          {
+            label: "AI Pro Se GPT Case Vault",
+            href: "https://aiprosegpt.com/",
+          },
+        ],
+      },
+      {
         title: "Why It Matters",
         paragraphs: [
-          "This project demonstrates high-stakes workflow design, AI orchestration thinking, and operational system building under unclear conditions.",
+          "Case Vault is built from a familiar operational problem: the work is already hard, and bad organization makes it harder. The project turns that frustration into software structure so a person can keep track of evidence, deadlines, documents, and decisions under pressure.",
+          "It shows system-building in a high-stakes environment where the requirements are messy, the documents are dense, and the cost of losing context is real.",
         ],
       },
     ],
@@ -220,15 +233,15 @@ const projectPages: ProjectProfilePageContent[] = [
   {
     path: "/webwalletx",
     title: "WebWalletX",
-    eyebrow: "AI-assisted financial operations",
+    eyebrow: "Cash control and operational visibility",
     subtitle:
-      "A modern AI-assisted financial command center inspired by real-world cash-control systems.",
+      "A financial command center concept built from real cash-control thinking and a field operator's need for clear dashboards.",
     overview: {
       title: "Overview",
       paragraphs: [
-        "WebWalletX is a financial operations dashboard concept for debt, payment, account, and cash-flow visibility.",
-        "It centralizes money management into a clear operational workspace and applies AI-assisted financial organization to everyday decisions.",
-        "The concept is inspired by Scott's earlier Complete Cash Control system and expands that thinking for modern product deployment.",
+        "WebWalletX grows out of Scott's earlier Complete Cash Control concept: make the moving parts visible, reduce confusion, and give the user one place to see what is happening.",
+        "The page is not trying to make personal finance sound mysterious. It treats money movement like an operations board: accounts, debt, payments, due dates, cash flow, and decisions that need attention.",
+        "The AI layer is there to help summarize, sort, and surface what matters. The core idea is still operational visibility: a system should be understandable when a person is tired, busy, or trying to make a decision quickly.",
       ],
     },
     featureSections: [
@@ -246,15 +259,35 @@ const projectPages: ProjectProfilePageContent[] = [
     ],
     copySections: [
       {
+        title: "WebDime Utility Access",
+        paragraphs: [
+          "WebWalletX is designed around WebDime (WDM), the utility token used to access and support the WebWalletX ecosystem. The goal is to connect financial organization, digital cash workflows, and AI-assisted account visibility through a token-gated utility model.",
+        ],
+        links: [
+          {
+            label: "WebWalletX",
+            href: "https://webwalletx.com/",
+          },
+          {
+            label: "WebDime Whitepaper",
+            href: "https://webdime.io/webdime-whitepaper/",
+          },
+          {
+            label: "Alex WebWalletX AI Support",
+            href: "https://chatgpt.com/g/g-tojGDo9qH-webwalletx-ai-support",
+          },
+        ],
+      },
+      {
         title: "Vision",
         paragraphs: [
-          "WebWalletX represents operational thinking around financial systems, workflow simplification, and user-centered AI tooling.",
+          "WebWalletX is about taking financial noise and turning it into a readable operating picture. The goal is a dashboard that helps people see where they stand without digging through five apps and a pile of disconnected reminders.",
         ],
       },
       {
         title: "Future Expansion",
         paragraphs: [
-          "Future expansion can include AI agents, automation, financial intelligence, operational dashboards, and digital asset integrations.",
+          "Future versions could add AI agents, automation, financial summaries, operational dashboards, and digital asset integrations, but the standard stays the same: the system has to remain clear enough for a real person to trust and use.",
         ],
       },
     ],
@@ -262,14 +295,15 @@ const projectPages: ProjectProfilePageContent[] = [
   {
     path: "/anthropic-fellows",
     title: "Anthropic Fellows Candidate Profile",
-    eyebrow: "AI reliability and human systems",
+    eyebrow: "AI reliability under real conditions",
     subtitle:
-      "Exploring AI reliability, human systems, and operational intelligence through real-world deployment experience.",
+      "A research direction focused on how AI systems behave when the environment is unclear and humans have to adapt.",
     overview: {
       title: "Background",
       paragraphs: [
-        "Scott brings the perspective of a former military communications operator, infrastructure deployment technician, AI systems builder, human-centered workflow designer, and real-world field operator.",
-        "His work sits at the intersection of technical systems, operational pressure, and people who must make decisions with incomplete information.",
+        "Scott's background is useful here because it comes from environments where the documentation is incomplete, the site conditions change, and the human still has to make the system work.",
+        "Military communications, infrastructure deployment, field service, and AI workflow building all expose the same problem from different angles: people coordinate under uncertainty, and systems often fail at the handoff points.",
+        "That makes AI reliability a practical question, not an abstract one. What happens when the model has partial context? What does it ask for? What does it assume? How does the human recover when the system is confident but wrong?",
       ],
     },
     featureSections: [
@@ -300,13 +334,14 @@ const projectPages: ProjectProfilePageContent[] = [
       {
         title: "Testing AI Agent Reliability in Ambiguous Field Environments",
         paragraphs: [
-          "This research direction studies how AI systems behave when requirements are incomplete, environments are unstable, and humans must rapidly adapt.",
+          "This research direction studies AI agents in conditions closer to field work: incomplete requirements, unstable environments, missing context, communication gaps, and humans who are adapting as they go.",
+          "The goal is to understand where coordination breaks down. Does the system recognize uncertainty? Does it escalate well? Can it keep track of changing constraints? Can it support the human without pretending the situation is cleaner than it is?",
         ],
       },
       {
         title: "Closing Statement",
         paragraphs: [
-          "The goal is to bridge real-world operational complexity with practical AI system design.",
+          "The goal is to connect real operational complexity with practical AI system design, especially in places where reliability depends on communication, context, and disciplined handoffs.",
         ],
       },
     ],
@@ -314,14 +349,15 @@ const projectPages: ProjectProfilePageContent[] = [
   {
     path: "/openai-fde",
     title: "Forward Deployed Engineer Profile",
-    eyebrow: "Deployment, communication, execution",
+    eyebrow: "Field execution and system recovery",
     subtitle:
-      "Deploying technology into real-world environments where ambiguity, communication, and execution matter.",
+      "Deploying technology where the site is messy, the clock is running, and the work is not finished until the system is operational.",
     overview: {
       title: "Mission Alignment",
       paragraphs: [
-        "Scott is a field-tested technical operator with deep experience in deployments and infrastructure.",
-        "He is comfortable in unclear environments, customer-facing settings, and execution-focused work where operations and technology need to meet quickly.",
+        "Scott's strongest fit is not a standard software engineer lane. It is field execution: walking into unclear environments, reading the room, finding the failure point, and getting people back to a working system.",
+        "That work takes technical range, but it also takes communication. Someone has to translate between the customer, the site contact, the remote team, the documentation, and the equipment that is actually in front of you.",
+        "Forward deployment rewards the same habits: stay calm, build context fast, explain what is happening, make practical decisions, and carry the work until the system is usable.",
       ],
     },
     featureSections: [
@@ -343,22 +379,27 @@ const projectPages: ProjectProfilePageContent[] = [
       {
         title: "Real-World Experience",
         paragraphs: [
-          "Scott's background includes nationwide technical deployments, infrastructure troubleshooting, multi-site support, technical leadership, operational communication, and AI product development.",
+          "Scott's background includes nationwide technical deployments, infrastructure troubleshooting, multi-site support, field documentation, technical leadership, operational communication, and AI product development.",
+          "The common thread is recovery and execution. A site may have missing information, wrong assumptions, bad cabling, failed equipment, unclear ownership, or a customer who just needs the system back online. The job is to narrow the problem, communicate clearly, and keep moving.",
         ],
       },
       {
         title: "Why Forward Deployment",
         paragraphs: [
-          "Forward deployment combines technical execution, customer interaction, operational clarity, and rapid adaptation under pressure.",
+          "Forward deployment is where technical work meets reality. Requirements change, users explain symptoms instead of root causes, and the environment rarely matches the clean version in the plan.",
+          "That is the kind of work Scott knows: troubleshoot the infrastructure, talk to non-technical stakeholders without losing them, coordinate with technical teams without wasting time, and restore a clear operating picture.",
         ],
       },
       {
         title: "Closing Statement",
         paragraphs: [
-          "Scott is a hybrid operator combining field engineering, infrastructure deployment, systems thinking, and AI-assisted workflow design.",
+          "Scott brings a hybrid operator profile: field engineering, infrastructure deployment, systems thinking, customer communication, and AI-assisted workflow design.",
+          "The value is practical. He can work where the problem is not fully defined yet, where the customer needs a steady technical voice, and where progress depends on turning confusion into an operational plan.",
         ],
       },
     ],
+    quote:
+      "Field environments are rarely clean, fully documented, or predictable. The job is to restore clarity and get systems operational.",
   },
 ];
 
@@ -422,10 +463,11 @@ export default function App() {
         </p>
 
         <p className="heroText">
-          Field-tested engineer with 35+ years of combined military,
-          telecommunications, IT, cabling, wireless, data center, and
-          client-facing technical deployment experience, now strengthened by
-          hands-on AI tools and automation.
+          Field-tested operator with 35+ years across military communications,
+          telecom, IT, cabling, wireless, data centers, and customer-facing
+          deployments. Scott is used to unclear sites, broken assumptions,
+          infrastructure problems, and the kind of operational communication it
+          takes to get systems working again.
         </p>
       </section>
 
@@ -433,11 +475,10 @@ export default function App() {
         <h2>Why Scott Fits Forward Deployed Engineering</h2>
 
         <p>
-          Scott brings the mix of technical depth, field experience, and
-          client-facing communication that makes AI Forward Deployed Engineers
-          effective. He can step into ambiguous environments, define the
-          problem, build practical solutions, and carry delivery through to a
-          documented, working system.
+          Scott's background is built around deployment work, troubleshooting,
+          and keeping people aligned when the plan does not match the site. He
+          can walk into a messy environment, figure out what is real, explain it
+          clearly, and build or repair the system under pressure.
         </p>
       </section>
 

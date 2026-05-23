@@ -271,6 +271,13 @@ h2 {
   border-radius: 20px;
   background: #020617;
   border: 1px solid rgba(148, 163, 184, 0.18);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.projectCard:hover {
+  border-color: rgba(125, 211, 252, 0.36);
+  box-shadow: 0 20px 42px rgba(2, 6, 23, 0.3);
+  transform: translateY(-2px);
 }
 
 .projectCard h3 {
@@ -420,6 +427,12 @@ h2 {
   border: 1px solid rgba(148, 163, 184, 0.18);
   border-radius: 24px;
   background: rgba(15, 23, 42, 0.76);
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.projectDetailSection:hover {
+  border-color: rgba(148, 163, 184, 0.28);
+  background: rgba(15, 23, 42, 0.82);
 }
 
 .projectDetailSection:nth-of-type(2) {
@@ -449,6 +462,35 @@ h2 {
   margin-top: 14px;
 }
 
+.projectLinkList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.projectLinkList a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 16px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  color: #f8fafc;
+  text-decoration: none;
+  font-weight: 800;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.projectLinkList a:hover,
+.projectLinkList a:focus-visible {
+  background: rgba(56, 189, 248, 0.12);
+  border-color: rgba(125, 211, 252, 0.4);
+  transform: translateY(-2px);
+}
+
 .projectFeatureGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
@@ -471,6 +513,21 @@ h2 {
   border-color: rgba(125, 211, 252, 0.4);
   box-shadow: 0 18px 34px rgba(2, 6, 23, 0.28);
   transform: translateY(-2px);
+}
+
+.projectQuoteBlock {
+  border-color: rgba(125, 211, 252, 0.28);
+  background:
+    linear-gradient(135deg, rgba(14, 165, 233, 0.16), rgba(15, 23, 42, 0.88)),
+    rgba(15, 23, 42, 0.8);
+}
+
+.projectQuoteBlock p {
+  max-width: 860px;
+  color: #f8fafc;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1.55;
 }
 
 @keyframes projectFadeUp {
@@ -1118,6 +1175,10 @@ h2 {
 
   .projectHeroSubtitle {
     font-size: 18px;
+  }
+
+  .projectLinkList a {
+    width: 100%;
   }
 
   .alexGrid {
