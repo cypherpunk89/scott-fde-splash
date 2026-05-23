@@ -9,6 +9,9 @@ import BookingPage from "./components/BookingPage";
 import BookingThanks from "./components/BookingThanks";
 import AlexLanding from "./components/AlexLanding";
 import AlexThanks from "./components/AlexThanks";
+import ProjectProfilePage, {
+  type ProjectProfilePageContent,
+} from "./components/ProjectProfilePage";
 
 function HeroVideoDock() {
   return (
@@ -120,8 +123,248 @@ const strengths = [
   },
 ];
 
+const pressureBuiltProjects = [
+  {
+    title: "AI Pro Se GPT Case Vault",
+    description:
+      "A legal AI workspace designed to help pro se litigants organize case documents, timelines, discovery, exhibits, and AI-ready case exports. Built from direct experience navigating federal litigation, discovery disputes, and document-heavy workflows.",
+    positioning:
+      "Human-in-the-loop legal AI, document intelligence, high-stakes workflow design, AI-assisted case management.",
+    buttonLabel: "View Case Vault Concept",
+    href: "/case-vault",
+  },
+  {
+    title: "WebWalletX",
+    description:
+      "A financial command center concept for tracking accounts, debt, payments, and digital cash workflows in one centralized app. Built from Scott's earlier Complete Cash Control software concept and expanded for modern AI-assisted financial operations.",
+    positioning:
+      "AI-assisted financial operations, digital cash workflow design, user-facing product deployment.",
+    buttonLabel: "View WebWalletX Concept",
+    href: "/webwalletx",
+  },
+];
+
+const mainProjects = [
+  {
+    title: "Case Vault",
+    text: "Human-in-the-loop legal AI workspace for document-heavy pro se litigation workflows.",
+    href: "/case-vault",
+  },
+  {
+    title: "WebWalletX",
+    text: "AI-assisted financial command center for accounts, payments, debt, and cash workflows.",
+    href: "/webwalletx",
+  },
+  {
+    title: "Anthropic Fellows",
+    text: "Candidate profile focused on AI reliability, human systems, and field deployment pressure.",
+    href: "/anthropic-fellows",
+  },
+  {
+    title: "OpenAI FDE",
+    text: "Forward Deployed Engineer profile connecting infrastructure execution with AI workflows.",
+    href: "/openai-fde",
+  },
+];
+
+const projectPages: ProjectProfilePageContent[] = [
+  {
+    path: "/case-vault",
+    title: "AI Pro Se GPT Case Vault",
+    eyebrow: "Legal AI workflow infrastructure",
+    subtitle:
+      "AI-assisted legal workflow infrastructure built from real federal litigation experience.",
+    overview: {
+      title: "Overview",
+      paragraphs: [
+        "AI Pro Se GPT Case Vault is a human-in-the-loop AI workspace for pro se litigants who need operational clarity across complex legal materials.",
+        "The platform is designed to organize exhibits, discovery, timelines, filings, and AI-ready exports in one structured environment.",
+        "It is built from real-world litigation pressure and document-heavy workflows, with an emphasis on workflow visibility and preparation rather than legal advice.",
+      ],
+    },
+    featureSections: [
+      {
+        title: "Core Features",
+        items: [
+          "AI-ready document organization",
+          "Discovery tracking",
+          "Timeline reconstruction",
+          "Deposition preparation",
+          "Exhibit indexing",
+          "AI export packaging",
+          "Workspace collaboration",
+          "Case intelligence dashboards",
+        ],
+      },
+      {
+        title: "Technical Stack",
+        items: [
+          "React",
+          "TypeScript",
+          "Vite",
+          "Supabase",
+          "AI-assisted workflows",
+          "Document intelligence architecture",
+        ],
+      },
+    ],
+    copySections: [
+      {
+        title: "Why It Matters",
+        paragraphs: [
+          "This project demonstrates high-stakes workflow design, AI orchestration thinking, and operational system building under unclear conditions.",
+        ],
+      },
+    ],
+  },
+  {
+    path: "/webwalletx",
+    title: "WebWalletX",
+    eyebrow: "AI-assisted financial operations",
+    subtitle:
+      "A modern AI-assisted financial command center inspired by real-world cash-control systems.",
+    overview: {
+      title: "Overview",
+      paragraphs: [
+        "WebWalletX is a financial operations dashboard concept for debt, payment, account, and cash-flow visibility.",
+        "It centralizes money management into a clear operational workspace and applies AI-assisted financial organization to everyday decisions.",
+        "The concept is inspired by Scott's earlier Complete Cash Control system and expands that thinking for modern product deployment.",
+      ],
+    },
+    featureSections: [
+      {
+        title: "System Concepts",
+        items: [
+          "Payment tracking",
+          "Debt visibility",
+          "Account monitoring",
+          "Digital cash workflows",
+          "AI financial summaries",
+          "User-facing operational dashboards",
+        ],
+      },
+    ],
+    copySections: [
+      {
+        title: "Vision",
+        paragraphs: [
+          "WebWalletX represents operational thinking around financial systems, workflow simplification, and user-centered AI tooling.",
+        ],
+      },
+      {
+        title: "Future Expansion",
+        paragraphs: [
+          "Future expansion can include AI agents, automation, financial intelligence, operational dashboards, and digital asset integrations.",
+        ],
+      },
+    ],
+  },
+  {
+    path: "/anthropic-fellows",
+    title: "Anthropic Fellows Candidate Profile",
+    eyebrow: "AI reliability and human systems",
+    subtitle:
+      "Exploring AI reliability, human systems, and operational intelligence through real-world deployment experience.",
+    overview: {
+      title: "Background",
+      paragraphs: [
+        "Scott brings the perspective of a former military communications operator, infrastructure deployment technician, AI systems builder, human-centered workflow designer, and real-world field operator.",
+        "His work sits at the intersection of technical systems, operational pressure, and people who must make decisions with incomplete information.",
+      ],
+    },
+    featureSections: [
+      {
+        title: "Research Interests",
+        items: [
+          "AI reliability",
+          "Human-in-the-loop systems",
+          "Ambiguous operational environments",
+          "AI deployment safety",
+          "AI workflow coordination",
+          "Field-based AI systems",
+        ],
+      },
+      {
+        title: "Technical Interests",
+        items: [
+          "AI orchestration",
+          "Operational systems",
+          "Deployment workflows",
+          "Infrastructure intelligence",
+          "Workflow automation",
+          "Real-world AI coordination",
+        ],
+      },
+    ],
+    copySections: [
+      {
+        title: "Testing AI Agent Reliability in Ambiguous Field Environments",
+        paragraphs: [
+          "This research direction studies how AI systems behave when requirements are incomplete, environments are unstable, and humans must rapidly adapt.",
+        ],
+      },
+      {
+        title: "Closing Statement",
+        paragraphs: [
+          "The goal is to bridge real-world operational complexity with practical AI system design.",
+        ],
+      },
+    ],
+  },
+  {
+    path: "/openai-fde",
+    title: "Forward Deployed Engineer Profile",
+    eyebrow: "Deployment, communication, execution",
+    subtitle:
+      "Deploying technology into real-world environments where ambiguity, communication, and execution matter.",
+    overview: {
+      title: "Mission Alignment",
+      paragraphs: [
+        "Scott is a field-tested technical operator with deep experience in deployments and infrastructure.",
+        "He is comfortable in unclear environments, customer-facing settings, and execution-focused work where operations and technology need to meet quickly.",
+      ],
+    },
+    featureSections: [
+      {
+        title: "Core Strengths",
+        items: [
+          "Network infrastructure",
+          "Low-voltage systems",
+          "Wireless surveys",
+          "Fiber deployments",
+          "Client-facing technical execution",
+          "AI-assisted operational systems",
+          "Deployment troubleshooting",
+          "Rapid field adaptation",
+        ],
+      },
+    ],
+    copySections: [
+      {
+        title: "Real-World Experience",
+        paragraphs: [
+          "Scott's background includes nationwide technical deployments, infrastructure troubleshooting, multi-site support, technical leadership, operational communication, and AI product development.",
+        ],
+      },
+      {
+        title: "Why Forward Deployment",
+        paragraphs: [
+          "Forward deployment combines technical execution, customer interaction, operational clarity, and rapid adaptation under pressure.",
+        ],
+      },
+      {
+        title: "Closing Statement",
+        paragraphs: [
+          "Scott is a hybrid operator combining field engineering, infrastructure deployment, systems thinking, and AI-assisted workflow design.",
+        ],
+      },
+    ],
+  },
+];
+
 export default function App() {
   const pathname = window.location.pathname.replace(/\/+$/, "") || "/";
+  const projectPage = projectPages.find((page) => page.path === pathname);
 
   if (pathname === "/book/thanks") {
     return <BookingThanks />;
@@ -137,6 +380,10 @@ export default function App() {
 
   if (pathname === "/alex") {
     return <AlexLanding />;
+  }
+
+  if (projectPage) {
+    return <ProjectProfilePage content={projectPage} />;
   }
 
   return (
@@ -207,6 +454,43 @@ export default function App() {
               rel="noreferrer"
             >
               {item.label}
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section className="section projectSection">
+        <h2>AI Systems Built From Real-World Pressure</h2>
+
+        <div className="projectGrid">
+          {pressureBuiltProjects.map((project) => (
+            <article className="projectCard" key={project.title}>
+              <div>
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
+              </div>
+
+              <p className="projectPositioning">{project.positioning}</p>
+
+              <a
+                className="projectButton"
+                href={project.href}
+              >
+                {project.buttonLabel}
+              </a>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="section projectSection">
+        <h2>Projects</h2>
+
+        <div className="mainProjectGrid">
+          {mainProjects.map((project) => (
+            <a className="mainProjectCard" href={project.href} key={project.title}>
+              <h3>{project.title}</h3>
+              <p>{project.text}</p>
             </a>
           ))}
         </div>
