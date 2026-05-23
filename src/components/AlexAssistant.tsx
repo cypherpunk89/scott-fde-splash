@@ -83,7 +83,11 @@ export default function AlexAssistant() {
     <div className="alexAssistantDock">
       <button
         type="button"
-        className="alexAudioToggle"
+        className={
+          audioEnabled
+            ? "alexAudioToggle alexAudioToggleDocked"
+            : "alexAudioToggle alexAudioToggleCentered"
+        }
         aria-pressed={audioEnabled}
         onClick={handleAudioToggle}
       >

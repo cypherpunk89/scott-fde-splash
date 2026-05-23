@@ -52,7 +52,16 @@ a {
 }
 
 .heroVideoDock {
+  display: block;
   width: 180px;
+  text-decoration: none;
+  animation: heroFloatLeft 7s ease-in-out infinite;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.heroVideoDock:hover,
+.heroVideoDock:focus-visible {
+  filter: brightness(1.08);
 }
 
 .heroVideoFrame {
@@ -90,6 +99,13 @@ a {
   background: rgba(15, 23, 42, 0.92);
   border: 1px solid rgba(125, 211, 252, 0.18);
   box-shadow: 0 18px 48px rgba(2, 6, 23, 0.4);
+  animation: heroFloatRight 7.5s ease-in-out 0.8s infinite;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.heroAvatar:hover,
+.heroAvatar:focus-visible {
+  filter: brightness(1.08);
 }
 
 .heroAvatarMedia {
@@ -134,6 +150,51 @@ h1 {
   color: #cbd5e1;
 }
 
+@keyframes heroFloatLeft {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-0.6deg);
+  }
+
+  50% {
+    transform: translateY(-8px) rotate(0.8deg);
+  }
+}
+
+@keyframes heroFloatRight {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    transform: translateY(-7px) scale(1.015);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroVideoDock,
+  .heroAvatar {
+    animation: none;
+  }
+}
+
+@media (min-width: 641px) {
+  .heroVideoDock {
+    position: fixed;
+    top: 110px;
+    left: max(24px, calc((100vw - 1100px) / 2 + 24px));
+    z-index: 18;
+  }
+
+  .heroAvatar {
+    position: fixed;
+    top: 110px;
+    right: max(24px, calc((100vw - 1100px) / 2 + 24px));
+    z-index: 18;
+  }
+}
+
 @media (max-width: 900px) {
   .hero {
     padding-top: 108px;
@@ -170,6 +231,7 @@ h1 {
 
   .heroVideoDock,
   .heroAvatar {
+    position: static;
     width: 128px;
   }
 
@@ -468,7 +530,28 @@ h2 {
   transform: none;
 }
 
+.standardHeroVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  background: #ffffff;
+  transform: none;
+}
+
 .projectHeroVideoFrame:has(.caseVaultHeroVideo) {
+  width: 100%;
+  max-width: 420px;
+  margin-left: auto;
+  aspect-ratio: 1 / 1;
+  padding: 1px;
+  background:
+    linear-gradient(#ffffff, #ffffff) padding-box,
+    linear-gradient(135deg, rgba(125, 211, 252, 0.34), rgba(15, 23, 42, 0.78)) border-box;
+  border-color: rgba(125, 211, 252, 0.28);
+}
+
+.projectHeroVideoFrame:has(.standardHeroVideo) {
   width: 100%;
   max-width: 420px;
   margin-left: auto;
@@ -857,6 +940,21 @@ h2 {
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
 }
 
+.alexAudioToggleCentered {
+  position: fixed;
+  left: 50%;
+  top: auto;
+  bottom: 28px;
+  z-index: 19;
+  min-height: 44px;
+  padding: 0 18px;
+  transform: translateX(-50%);
+}
+
+.alexAudioToggleDocked {
+  position: relative;
+}
+
 .alexAudioToggle[aria-pressed="true"] {
   background: linear-gradient(135deg, #38bdf8, #2563eb);
   color: #f8fafc;
@@ -972,6 +1070,26 @@ h2 {
   grid-template-columns: 128px minmax(0, 1fr);
   gap: 32px;
   align-items: start;
+}
+
+.alexHeroSplit {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.82fr);
+  gap: 28px;
+  align-items: center;
+}
+
+.alexHeroSplit .alexIntro {
+  margin: 24px 0 0;
+}
+
+.alexHeroSplit h1 {
+  margin: 0;
+  max-width: 12ch;
+  font-size: clamp(48px, 8vw, 88px);
+  line-height: 0.96;
 }
 
 .alexPortrait {
@@ -1331,6 +1449,13 @@ h2 {
     bottom: 16px;
   }
 
+  .alexAudioToggleCentered {
+    top: auto;
+    bottom: 112px;
+    min-width: min(260px, calc(100vw - 32px));
+    transform: translateX(-50%);
+  }
+
   .alexButton {
     justify-content: center;
   }
@@ -1345,6 +1470,10 @@ h2 {
   }
 
   .alexHeader {
+    grid-template-columns: 1fr;
+  }
+
+  .alexHeroSplit {
     grid-template-columns: 1fr;
   }
 
@@ -1432,6 +1561,10 @@ h2 {
   }
 
   .projectHeroVideoFrame:has(.caseVaultHeroVideo) {
+    margin: 0 auto;
+  }
+
+  .projectHeroVideoFrame:has(.standardHeroVideo) {
     margin: 0 auto;
   }
 

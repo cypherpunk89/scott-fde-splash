@@ -2,6 +2,7 @@ import AlexAssistant from "./components/AlexAssistant";
 import {
   alexAvatarUrl,
   alexIntroVideoUrl,
+  alexSupportMutedVideoUrl,
   scottIntroVideoUrl,
   scottWebsiteUrl,
 } from "./alexConfig";
@@ -15,7 +16,11 @@ import ProjectProfilePage, {
 
 function HeroVideoDock() {
   return (
-    <div className="heroVideoDock">
+    <a
+      className="heroVideoDock"
+      href="https://scottjewett.me/alex"
+      aria-label="Open Alex assistant"
+    >
       <div className="heroVideoFrame" aria-hidden="true">
         <video
           className="heroVideoEmbed"
@@ -29,7 +34,7 @@ function HeroVideoDock() {
           tabIndex={-1}
         />
       </div>
-    </div>
+    </a>
   );
 }
 
@@ -274,6 +279,11 @@ const projectPages: ProjectProfilePageContent[] = [
     eyebrow: "Role-based AI assistants",
     subtitle:
       "A working collection of role-based AI assistants built to support field operations, legal workflows, WebWalletX, compliance, development, QA, and customer support.",
+    heroVideo: {
+      src: scottIntroVideoUrl,
+      label: "Say hello to Scott video",
+      className: "standardHeroVideo",
+    },
     overview: {
       title: "Overview",
       paragraphs: [
@@ -769,14 +779,12 @@ export default function App() {
 
           <a
             className="heroAvatar"
-            href={scottWebsiteUrl}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Visit TechSGT.com"
+            href="https://scottjewett.me/gpt-swarm"
+            aria-label="Open GPT Swarm"
           >
             <video
               className="heroAvatarMedia"
-              src={scottIntroVideoUrl}
+              src={alexSupportMutedVideoUrl}
               autoPlay
               muted
               loop

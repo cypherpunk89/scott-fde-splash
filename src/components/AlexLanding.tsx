@@ -1,9 +1,8 @@
 import { useEffect, type MouseEvent } from "react";
 
-import { alexAvatarUrl, alexUrl } from "../alexConfig";
+import { alexIntroVideoUrl, alexUrl } from "../alexConfig";
 import { trackEvent, trackPageView } from "../analytics";
-import AlexVideoIntro from "./AlexVideoIntro";
-import ScottVideoIntro from "./ScottVideoIntro";
+import { ProjectHeroVideo } from "./ProjectProfilePage";
 
 const alexThanksUrl = "/alex/thanks";
 
@@ -49,27 +48,23 @@ export default function AlexLanding() {
 
         <div className="alexOrb" aria-hidden="true" />
 
-        <div className="alexHeader">
-          <img
-            className="alexPortrait"
-            src={alexAvatarUrl}
-            alt="Alex AI Assistant"
-          />
-
+        <div className="alexHeroSplit">
           <div>
             <p className="alexEyebrow">Scott Jewett's Forward Deployed Engineer guide</p>
             <h1>Ask Alex before you book the call.</h1>
+            <p className="alexIntro">
+              Alex is a custom assistant built to answer questions about Scott's
+              field engineering background, deployment history, technical strengths,
+              and the kind of client-facing work he handles in the field.
+            </p>
           </div>
+
+          <ProjectHeroVideo
+            className="standardHeroVideo"
+            label="Alex intro video"
+            src={alexIntroVideoUrl}
+          />
         </div>
-
-        <p className="alexIntro">
-          Alex is a custom assistant built to answer questions about Scott's
-          field engineering background, deployment history, technical strengths,
-          and the kind of client-facing work he handles in the field.
-        </p>
-
-        <ScottVideoIntro />
-        <AlexVideoIntro />
 
         <div className="alexActions" id="alex-launch">
           <a
@@ -79,9 +74,6 @@ export default function AlexLanding() {
             onClick={handleLaunchClick}
           >
             Launch Alex
-          </a>
-          <a className="alexSecondaryAction" href="mailto:scott.jewett@techsgt.com">
-            Email Scott directly
           </a>
         </div>
 

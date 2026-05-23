@@ -64,7 +64,7 @@ type ProjectProfilePageProps = {
   content: ProjectProfilePageContent;
 };
 
-function ProjectHeroVideo({
+export function ProjectHeroVideo({
   label,
   className,
   src,

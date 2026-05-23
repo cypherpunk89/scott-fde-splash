@@ -1,12 +1,14 @@
 import { useEffect } from "react";
 
 import {
+  alexSupportThanksVideoUrl,
   alexUrl,
   bookingUrl,
   scottEmailUrl,
   scottWebsiteUrl,
 } from "../alexConfig";
 import { trackEvent, trackPageView } from "../analytics";
+import { ProjectHeroVideo } from "./ProjectProfilePage";
 
 export default function AlexThanks() {
   useEffect(() => {
@@ -58,16 +60,26 @@ export default function AlexThanks() {
 
         <div className="alexOrb" aria-hidden="true" />
 
-        <p className="alexStatusChip">Alex launched</p>
+        <div className="alexHeroSplit">
+          <div>
+            <p className="alexStatusChip">Alex launched</p>
 
-        <p className="alexEyebrow">Thank you for taking the next step</p>
-        <h1>Alex should already be open in a new tab.</h1>
+            <p className="alexEyebrow">Thank you for taking the next step</p>
+            <h1>Alex should already be open in a new tab.</h1>
 
-        <p className="alexIntro">
-          Keep this page open as the next step in the funnel. If the assistant
-          did not open, use the backup link below. If the conversation looks
-          promising, open Scott's intake form while the interest is still fresh.
-        </p>
+            <p className="alexIntro">
+              Keep this page open as the next step in the funnel. If the assistant
+              did not open, use the backup link below. If the conversation looks
+              promising, open Scott's intake form while the interest is still fresh.
+            </p>
+          </div>
+
+          <ProjectHeroVideo
+            className="standardHeroVideo"
+            label="Alex interactive GPT support video"
+            src={alexSupportThanksVideoUrl}
+          />
+        </div>
 
         <div className="alexActions">
           <a href={bookingUrl} onClick={handleBookClick}>
