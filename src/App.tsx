@@ -264,6 +264,9 @@ const mainProjects = [
   },
 ];
 
+const defaultGptAvatarUrl =
+  "https://techsgt.com/wp-content/uploads/2026/05/Alex-Avatar.png";
+
 const projectPages: ProjectProfilePageContent[] = [
   {
     path: "/gpt-swarm",
@@ -287,10 +290,22 @@ const projectPages: ProjectProfilePageContent[] = [
             description:
               "Assistants for work orders, field surveys, network deployments, closing notes, and technician support.",
             examples: [
-              "TechSGT.com AI Field Tech Assistant",
-              "TechSGT Network Deployment Commander",
-              "Work Order Prompt Generator 5.0",
-              "Velocity Survey Guide",
+              {
+                label: "TechSGT.com AI Field Tech Assistant",
+                href: "https://chatgpt.com/g/g-69a2382343bc8191aee5f6a8dec9b98a-techsgt-com-ai-field-tech-assistant",
+              },
+              {
+                label: "TechSGT Network Deployment Commander",
+                href: "https://chatgpt.com/g/g-69a71c3dfaf88191bc36c612a6c8fa7b-techsgt-network-deployment-commander",
+              },
+              {
+                label: "Work Order Prompt Generator 5.0",
+                href: "https://chatgpt.com/g/g-68caaed343348191b87fc16802f02063-work-order-prompt-generator-5-0",
+              },
+              {
+                label: "Velocity Survey Guide",
+                href: "https://chatgpt.com/g/g-69bf964a1af08191a1d0aa0f02f7ae3e-velocity-survey-guide",
+              },
             ],
           },
           {
@@ -298,11 +313,26 @@ const projectPages: ProjectProfilePageContent[] = [
             description:
               "Assistants for pro se litigation organization, legal media framing, jurisdiction review, case strategy, and document-heavy workflows.",
             examples: [
-              "Pro Se GPT",
-              "Jurisdiction Finder Pro Se GPT",
-              "Alex Reyes",
-              "Maggie Legal Assistant GPT",
-              "David Class Action Counsel",
+              {
+                label: "Pro Se GPT",
+                href: "https://chatgpt.com/g/g-u8i7Axisa-pro-se-gpt",
+              },
+              {
+                label: "Jurisdiction Finder Pro Se GPT",
+                href: "https://chatgpt.com/g/g-686b4790cd488191b6cf4f87bdf31cd0-jurisdiction-finder-pro-se-gpt",
+              },
+              {
+                label: "Alex Reyes",
+                href: "https://chatgpt.com/g/g-6833abdd64c48191bfb963915341be1c-alex-reyes",
+              },
+              {
+                label: "Maggie Legal Assistant GPT",
+                href: "https://chatgpt.com/g/g-683371d12c008191aec2b132be6f562c-maggie-legal-assistant-gpt-patel-case",
+              },
+              {
+                label: "David Class Action Counsel",
+                href: "https://chatgpt.com/g/g-6833907a7edc8191a68030eeaca647f9-david-class-action-counsel",
+              },
             ],
           },
           {
@@ -310,14 +340,38 @@ const projectPages: ProjectProfilePageContent[] = [
             description:
               "A role-based product team covering support, compliance, security, development, UX, QA, and project management.",
             examples: [
-              "WebWalletX AI Support",
-              "WebWalletX Compliance Officer",
-              "WebWalletX Security Analyst",
-              "WebWalletX Back-End Developer",
-              "WebWalletX Front-End Developer",
-              "WebWalletX QA Engineer",
-              "WebWalletX Project Manager",
-              "WebWalletX UX Designer",
+              {
+                label: "WebWalletX AI Support",
+                href: "https://chatgpt.com/g/g-tojGDo9qH-webwalletx-ai-support",
+              },
+              {
+                label: "WebWalletX Compliance Officer",
+                href: "https://chatgpt.com/g/g-zhRKcEsVC-webwalletx-compliance-officer",
+              },
+              {
+                label: "WebWalletX Security Analyst",
+                href: "https://chatgpt.com/g/g-VfCbBH7lp-webwalletx-security-analyst",
+              },
+              {
+                label: "WebWalletX Back-End Developer",
+                href: "https://chatgpt.com/g/g-WA2V7y6dI-webwalletx-back-end-developer",
+              },
+              {
+                label: "WebWalletX Front-End Developer",
+                href: "https://chatgpt.com/g/g-2CeU47a0r-webwalletx-front-end-developer",
+              },
+              {
+                label: "WebWalletX QA Engineer",
+                href: "https://chatgpt.com/g/g-FNTFwnscE-webwalletx-qa-engineer",
+              },
+              {
+                label: "WebWalletX Project Manager",
+                href: "https://chatgpt.com/g/g-0qW0pFQ1h-webwalletx-project-manager",
+              },
+              {
+                label: "WebWalletX UX Designer",
+                href: "https://chatgpt.com/g/g-M2tSOZZvm-webwalletx-ux-designer",
+              },
             ],
           },
           {
@@ -325,11 +379,26 @@ const projectPages: ProjectProfilePageContent[] = [
             description:
               "Assistants for scheduling, bid strategy, business cards, underwriter support, and startup planning.",
             examples: [
-              "SAM Bid Strategist",
-              "Event Scheduler",
-              "Business Card Collector",
-              "AI Businesses Agents and Ideas",
-              "TechSGT.com GPT Underwriter for Fund TN",
+              {
+                label: "SAM Bid Strategist",
+                href: "https://chatgpt.com/g/g-679525a06fd88191951f758b9cb4ff55-sam-bid-strategist",
+              },
+              {
+                label: "Event Scheduler",
+                href: "https://chatgpt.com/g/g-67d30d1ffecc819197ac8083570f6e03-event-scheduler",
+              },
+              {
+                label: "Business Card Collector",
+                href: "https://chatgpt.com/g/g-X0nh5BiMC-business-card-collector",
+              },
+              {
+                label: "AI Businesses Agents and Ideas",
+                href: "https://chatgpt.com/g/g-H2A6II6TS-ai-businesses-agents-and-ideas",
+              },
+              {
+                label: "TechSGT.com GPT Underwriter for Fund TN",
+                href: "https://chatgpt.com/g/g-QJb2593PX-techsgt-com-gpt-underwriter-for-fund-tn",
+              },
             ],
           },
         ],
@@ -351,62 +420,79 @@ const projectPages: ProjectProfilePageContent[] = [
     ],
     directorySection: {
       title: "GPT Directory",
+      href: "https://chatgpt.com/g/g-6a11af119b008191b89e3ca98a4b9561-alex",
+      helperText:
+        "Select here to talk to Alex about Scott's full directory of GPTs.",
       links: [
         {
           label: "TechSGT.com AI Field Tech Assistant",
           href: "https://chatgpt.com/g/g-69a2382343bc8191aee5f6a8dec9b98a-techsgt-com-ai-field-tech-assistant",
+          avatarUrl: defaultGptAvatarUrl,
         },
         {
           label: "TechSGT Network Deployment Commander",
           href: "https://chatgpt.com/g/g-69a71c3dfaf88191bc36c612a6c8fa7b-techsgt-network-deployment-commander",
+          avatarUrl: defaultGptAvatarUrl,
         },
         {
           label: "Work Order Prompt Generator 5.0",
           href: "https://chatgpt.com/g/g-68caaed343348191b87fc16802f02063-work-order-prompt-generator-5-0",
+          avatarUrl: defaultGptAvatarUrl,
         },
         {
           label: "Pro Se GPT",
           href: "https://chatgpt.com/g/g-u8i7Axisa-pro-se-gpt",
+          avatarUrl: defaultGptAvatarUrl,
         },
         {
           label: "Jurisdiction Finder Pro Se GPT",
           href: "https://chatgpt.com/g/g-686b4790cd488191b6cf4f87bdf31cd0-jurisdiction-finder-pro-se-gpt",
+          avatarUrl: defaultGptAvatarUrl,
         },
         {
           label: "Alex Reyes",
           href: "https://chatgpt.com/g/g-6833abdd64c48191bfb963915341be1c-alex-reyes",
+          avatarUrl: defaultGptAvatarUrl,
         },
         {
           label: "WebWalletX AI Support",
           href: "https://chatgpt.com/g/g-tojGDo9qH-webwalletx-ai-support",
+          avatarUrl: defaultGptAvatarUrl,
         },
         {
           label: "WebWalletX Compliance Officer",
           href: "https://chatgpt.com/g/g-zhRKcEsVC-webwalletx-compliance-officer",
+          avatarUrl: defaultGptAvatarUrl,
         },
         {
           label: "WebWalletX Security Analyst",
           href: "https://chatgpt.com/g/g-VfCbBH7lp-webwalletx-security-analyst",
+          avatarUrl: defaultGptAvatarUrl,
         },
         {
           label: "WebWalletX Back-End Developer",
           href: "https://chatgpt.com/g/g-WA2V7y6dI-webwalletx-back-end-developer",
+          avatarUrl: defaultGptAvatarUrl,
         },
         {
           label: "WebWalletX Front-End Developer",
           href: "https://chatgpt.com/g/g-2CeU47a0r-webwalletx-front-end-developer",
+          avatarUrl: defaultGptAvatarUrl,
         },
         {
           label: "WebWalletX QA Engineer",
           href: "https://chatgpt.com/g/g-FNTFwnscE-webwalletx-qa-engineer",
+          avatarUrl: defaultGptAvatarUrl,
         },
         {
           label: "WebWalletX Project Manager",
           href: "https://chatgpt.com/g/g-0qW0pFQ1h-webwalletx-project-manager",
+          avatarUrl: defaultGptAvatarUrl,
         },
         {
           label: "WebWalletX UX Designer",
           href: "https://chatgpt.com/g/g-M2tSOZZvm-webwalletx-ux-designer",
+          avatarUrl: defaultGptAvatarUrl,
         },
       ],
     },
@@ -417,6 +503,11 @@ const projectPages: ProjectProfilePageContent[] = [
     eyebrow: "Legal workflow built from pressure",
     subtitle:
       "A practical legal workflow system shaped by real federal litigation, large document sets, and the need to stay oriented.",
+    heroVideo: {
+      src: "/AI_Pro_Se_GPT_Case_Vault_for_Legal_Case_Management__05-23 09_12.mp4",
+      label: "AI Pro Se GPT Case Vault video",
+      className: "caseVaultHeroVideo",
+    },
     overview: {
       title: "Overview",
       paragraphs: [

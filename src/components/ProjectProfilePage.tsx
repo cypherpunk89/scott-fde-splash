@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useState, type MouseEvent } from "react";
 
 import { trackPageView } from "../analytics";
 
@@ -21,15 +21,24 @@ type CategorySection = {
   categories: {
     title: string;
     description: string;
-    examples: string[];
+    examples: (
+      | string
+      | {
+          label: string;
+          href: string;
+        }
+    )[];
   }[];
 };
 
 type DirectorySection = {
   title: string;
+  href?: string;
+  helperText?: string;
   links: {
     label: string;
     href: string;
+    avatarUrl?: string;
   }[];
 };
 
@@ -38,6 +47,11 @@ export type ProjectProfilePageContent = {
   title: string;
   eyebrow: string;
   subtitle: string;
+  heroVideo?: {
+        src: string;
+        label: string;
+        className?: string;
+      };
   overview: CopySection;
   featureSections: FeatureSection[];
   categorySections?: CategorySection[];
@@ -49,6 +63,104 @@ export type ProjectProfilePageContent = {
 type ProjectProfilePageProps = {
   content: ProjectProfilePageContent;
 };
+
+function ProjectHeroVideo({
+  label,
+  className,
+  src,
+}: {
+  label: string;
+  className?: string;
+  src: string;
+}) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [audioEnabled, setAudioEnabled] = useState(false);
+
+  function restartMutedLoop() {
+    const video = videoRef.current;
+
+    if (!video) {
+      return;
+    }
+
+    video.muted = true;
+    video.loop = true;
+    setAudioEnabled(false);
+
+    void video.play().catch(() => {
+      setAudioEnabled(false);
+    });
+  }
+
+  function handleAudioToggle(event: MouseEvent<HTMLButtonElement>) {
+    event.preventDefault();
+
+    const video = videoRef.current;
+
+    if (!video) {
+      return;
+    }
+
+    if (audioEnabled) {
+      restartMutedLoop();
+      return;
+    }
+
+    video.pause();
+    video.currentTime = 0;
+    video.loop = false;
+    video.muted = false;
+
+    video
+      .play()
+      .then(() => {
+        setAudioEnabled(true);
+      })
+      .catch(() => {
+        video.muted = true;
+        video.loop = true;
+        setAudioEnabled(false);
+      });
+  }
+
+  function handleAudioEnded() {
+    const video = videoRef.current;
+
+    if (!video) {
+      return;
+    }
+
+    video.currentTime = 0;
+    restartMutedLoop();
+  }
+
+  return (
+    <div className="projectHeroVideoWrap">
+      <div className="projectHeroVideoFrame">
+        <video
+          ref={videoRef}
+          className={["projectHeroVideo", className].filter(Boolean).join(" ")}
+          src={src}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          onEnded={handleAudioEnded}
+          aria-label={label}
+        />
+        <button
+          className="alexAudioToggle projectHeroAudioToggle"
+          type="button"
+          aria-pressed={audioEnabled}
+          onClick={handleAudioToggle}
+        >
+          {audioEnabled ? "Mute sound" : "Enable sound"}
+        </button>
+      </div>
+    </div>
+  );
+}
 
 export default function ProjectProfilePage({ content }: ProjectProfilePageProps) {
   useEffect(() => {
@@ -72,9 +184,21 @@ export default function ProjectProfilePage({ content }: ProjectProfilePageProps)
 
         <div className="projectGlow" aria-hidden="true" />
 
-        <p className="alexEyebrow">{content.eyebrow}</p>
-        <h1>{content.title}</h1>
-        <p className="projectHeroSubtitle">{content.subtitle}</p>
+        <div className={content.heroVideo ? "projectHeroSplit" : undefined}>
+          <div className="projectHeroCopy">
+            <p className="alexEyebrow">{content.eyebrow}</p>
+            <h1>{content.title}</h1>
+            <p className="projectHeroSubtitle">{content.subtitle}</p>
+          </div>
+
+          {content.heroVideo ? (
+            <ProjectHeroVideo
+              className={content.heroVideo.className}
+              label={content.heroVideo.label}
+              src={content.heroVideo.src}
+            />
+          ) : null}
+        </div>
       </section>
 
       <section className="projectDetailSection">
@@ -110,9 +234,26 @@ export default function ProjectProfilePage({ content }: ProjectProfilePageProps)
                 <div className="projectExampleList">
                   <span>Example GPTs</span>
                   <ul>
-                    {category.examples.map((example) => (
-                      <li key={example}>{example}</li>
-                    ))}
+                    {category.examples.map((example) => {
+                      const label =
+                        typeof example === "string" ? example : example.label;
+
+                      return (
+                        <li key={label}>
+                          {typeof example === "string" ? (
+                            example
+                          ) : (
+                            <a
+                              href={example.href}
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              {example.label}
+                            </a>
+                          )}
+                        </li>
+                      );
+                    })}
                   </ul>
                 </div>
               </article>
@@ -146,7 +287,23 @@ export default function ProjectProfilePage({ content }: ProjectProfilePageProps)
 
       {content.directorySection ? (
         <section className="projectDetailSection">
-          <h2>{content.directorySection.title}</h2>
+          <h2>
+            {content.directorySection.href ? (
+              <a
+                className="projectDirectoryHeadingLink"
+                href={content.directorySection.href}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span>{content.directorySection.title}</span>
+                {content.directorySection.helperText ? (
+                  <small>{content.directorySection.helperText}</small>
+                ) : null}
+              </a>
+            ) : (
+              content.directorySection.title
+            )}
+          </h2>
           <div className="projectDirectoryGrid">
             {content.directorySection.links.map((link) => (
               <a
@@ -155,7 +312,15 @@ export default function ProjectProfilePage({ content }: ProjectProfilePageProps)
                 target="_blank"
                 rel="noreferrer"
               >
-                {link.label}
+                {link.avatarUrl ? (
+                  <img
+                    className="projectDirectoryAvatar"
+                    src={link.avatarUrl}
+                    alt=""
+                    aria-hidden="true"
+                  />
+                ) : null}
+                <span>{link.label}</span>
               </a>
             ))}
           </div>

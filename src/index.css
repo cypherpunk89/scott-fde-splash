@@ -411,6 +411,19 @@ h2 {
   font-size: clamp(46px, 7vw, 82px);
 }
 
+.projectHeroSplit {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.82fr);
+  gap: 28px;
+  align-items: center;
+}
+
+.projectHeroCopy {
+  min-width: 0;
+}
+
 .projectHeroSubtitle {
   position: relative;
   z-index: 1;
@@ -419,6 +432,58 @@ h2 {
   color: #cbd5e1;
   font-size: 21px;
   line-height: 1.65;
+}
+
+.projectHeroVideoWrap {
+  position: relative;
+  z-index: 1;
+}
+
+.projectHeroVideoFrame {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 9;
+  border-radius: 24px;
+  background: #020617;
+  border: 1px solid rgba(125, 211, 252, 0.22);
+  box-shadow: 0 24px 64px rgba(2, 6, 23, 0.44);
+}
+
+.projectHeroVideo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #020617;
+}
+
+.caseVaultHeroVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  background: #ffffff;
+  transform: none;
+}
+
+.projectHeroVideoFrame:has(.caseVaultHeroVideo) {
+  width: 100%;
+  max-width: 420px;
+  margin-left: auto;
+  aspect-ratio: 1 / 1;
+  padding: 1px;
+  background:
+    linear-gradient(#ffffff, #ffffff) padding-box,
+    linear-gradient(135deg, rgba(125, 211, 252, 0.34), rgba(15, 23, 42, 0.78)) border-box;
+  border-color: rgba(125, 211, 252, 0.28);
+}
+
+.projectHeroAudioToggle {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
 }
 
 .projectDetailSection {
@@ -573,6 +638,42 @@ h2 {
   margin-top: 6px;
 }
 
+.projectExampleList a {
+  color: #dbeafe;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.projectExampleList a:hover,
+.projectExampleList a:focus-visible {
+  color: #7dd3fc;
+}
+
+.projectDirectoryHeadingLink {
+  display: inline-grid;
+  gap: 4px;
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.projectDirectoryHeadingLink small {
+  color: #94a3b8;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.projectDirectoryHeadingLink:hover,
+.projectDirectoryHeadingLink:focus-visible {
+  color: #7dd3fc;
+}
+
+.projectDirectoryHeadingLink:hover small,
+.projectDirectoryHeadingLink:focus-visible small {
+  color: #bae6fd;
+}
+
 .projectDirectoryGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -582,6 +683,7 @@ h2 {
 .projectDirectoryGrid a {
   display: flex;
   align-items: center;
+  gap: 12px;
   min-height: 58px;
   padding: 14px 16px;
   border-radius: 16px;
@@ -599,6 +701,15 @@ h2 {
   background: rgba(56, 189, 248, 0.12);
   border-color: rgba(125, 211, 252, 0.4);
   transform: translateY(-2px);
+}
+
+.projectDirectoryAvatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid rgba(125, 211, 252, 0.32);
+  flex: 0 0 auto;
 }
 
 .projectQuoteBlock {
@@ -1309,6 +1420,19 @@ h2 {
 
   .projectHeroSubtitle {
     font-size: 18px;
+  }
+
+  .projectHeroSplit {
+    grid-template-columns: 1fr;
+  }
+
+  .projectHeroAudioToggle {
+    right: 12px;
+    bottom: 12px;
+  }
+
+  .projectHeroVideoFrame:has(.caseVaultHeroVideo) {
+    margin: 0 auto;
   }
 
   .projectLinkList a {
