@@ -821,35 +821,6 @@ export default function App() {
         </p>
       </section>
 
-      <section className="section">
-        <h2>Why Scott Fits Forward Deployed Engineering</h2>
-
-        <p>
-          Scott's background is built around deployment work, troubleshooting,
-          and keeping people aligned when the plan does not match the site. He
-          can walk into a messy environment, figure out what is real, explain it
-          clearly, and build or repair the system under pressure.
-        </p>
-      </section>
-
-      <section className="gridSection">
-        <h2>Core Strengths</h2>
-
-        <div className="grid">
-          {strengths.map((item) => (
-            <a
-              className="card cardLink"
-              href={item.href}
-              key={item.label}
-              target="_blank"
-              rel="noreferrer"
-            >
-              {item.label}
-            </a>
-          ))}
-        </div>
-      </section>
-
       <section className="section projectSection">
         <h2>AI Systems Built From Real-World Pressure</h2>
 
@@ -913,6 +884,35 @@ export default function App() {
             </article>
           ))}
         </div>
+      </section>
+
+      <section className="gridSection">
+        <h2>Core Strengths</h2>
+
+        <div className="grid">
+          {strengths.map((item) => (
+            <a
+              className="card cardLink"
+              href={item.href}
+              key={item.label}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {item.label}
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section className="section">
+        <h2>Why Scott Fits Forward Deployed Engineering</h2>
+
+        <p>
+          Scott's background is built around deployment work, troubleshooting,
+          and keeping people aligned when the plan does not match the site. He
+          can walk into a messy environment, figure out what is real, explain it
+          clearly, and build or repair the system under pressure.
+        </p>
       </section>
 
       <section className="section callout">
