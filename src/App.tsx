@@ -796,7 +796,15 @@ export default function App() {
           </a>
         </div>
 
-        <div className="badge">Forward Deployed Engineer</div>
+        <a
+          className="badge badgeLink"
+          href="https://youtu.be/juHv_Vi4giU?si=Iqgz4HXUqbc_pKKp"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Watch Forward Deployed Engineer video"
+        >
+          Forward Deployed Engineer
+        </a>
 
         <h1>Scott Jewett</h1>
 
