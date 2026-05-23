@@ -515,6 +515,92 @@ h2 {
   transform: translateY(-2px);
 }
 
+.projectCategoryGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.projectCategoryCard {
+  padding: 22px;
+  border-radius: 20px;
+  background: #020617;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.projectCategoryCard:hover {
+  border-color: rgba(125, 211, 252, 0.36);
+  box-shadow: 0 20px 42px rgba(2, 6, 23, 0.3);
+  transform: translateY(-2px);
+}
+
+.projectCategoryCard h3 {
+  margin: 0;
+  color: #f8fafc;
+  font-size: 22px;
+}
+
+.projectCategoryCard p {
+  margin-top: 12px;
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.projectExampleList {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(148, 163, 184, 0.16);
+}
+
+.projectExampleList span {
+  display: block;
+  color: #93c5fd;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.projectExampleList ul {
+  margin: 10px 0 0;
+  padding-left: 20px;
+  color: #cbd5e1;
+  line-height: 1.6;
+}
+
+.projectExampleList li + li {
+  margin-top: 6px;
+}
+
+.projectDirectoryGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+}
+
+.projectDirectoryGrid a {
+  display: flex;
+  align-items: center;
+  min-height: 58px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: rgba(2, 6, 23, 0.82);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  color: #f8fafc;
+  text-decoration: none;
+  font-weight: 800;
+  line-height: 1.35;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.projectDirectoryGrid a:hover,
+.projectDirectoryGrid a:focus-visible {
+  background: rgba(56, 189, 248, 0.12);
+  border-color: rgba(125, 211, 252, 0.4);
+  transform: translateY(-2px);
+}
+
 .projectQuoteBlock {
   border-color: rgba(125, 211, 252, 0.28);
   background:
@@ -552,6 +638,20 @@ h2 {
   border-radius: 20px;
   background: #020617;
   border: 1px solid rgba(148, 163, 184, 0.18);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.job:hover {
+  border-color: rgba(125, 211, 252, 0.34);
+  box-shadow: 0 18px 38px rgba(2, 6, 23, 0.28);
+  transform: translateY(-2px);
+}
+
+.jobHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
 }
 
 .job h3 {
@@ -560,13 +660,47 @@ h2 {
 }
 
 .role {
-  margin: 6px 0 0;
+  margin: 10px 0 0;
   color: #93c5fd !important;
+  font-weight: 800;
 }
 
 .dates {
+  margin: 0;
   font-weight: 800;
   color: #f8fafc !important;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.jobLocation {
+  margin: 4px 0 0;
+  color: #94a3b8 !important;
+  font-size: 16px !important;
+  font-weight: 800;
+}
+
+.timelineProofLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  margin-top: 16px;
+  padding: 0 14px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  color: #f8fafc;
+  text-decoration: none;
+  font-weight: 800;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.timelineProofLink:hover,
+.timelineProofLink:focus-visible {
+  background: rgba(56, 189, 248, 0.12);
+  border-color: rgba(125, 211, 252, 0.4);
+  transform: translateY(-2px);
 }
 
 .callout {
@@ -1178,6 +1312,24 @@ h2 {
   }
 
   .projectLinkList a {
+    width: 100%;
+  }
+
+  .projectCategoryGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .jobHeader {
+    display: block;
+  }
+
+  .dates {
+    margin-top: 10px;
+    text-align: left;
+    white-space: normal;
+  }
+
+  .timelineProofLink {
     width: 100%;
   }
 

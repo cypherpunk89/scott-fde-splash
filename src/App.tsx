@@ -33,7 +33,17 @@ function HeroVideoDock() {
   );
 }
 
-const experience = [
+type ExperienceEntry = {
+  company: string;
+  role: string;
+  dates: string;
+  text: string;
+  location?: string;
+  proofLabel?: string;
+  proofHref?: string;
+};
+
+const experience: ExperienceEntry[] = [
   {
     company: "TechSGT.com",
     role: "Owner / Operator",
@@ -83,6 +93,88 @@ const experience = [
     text: "Boca Raton and West Palm Beach, FL. Served in site supervisor and road supervisor roles supporting high-responsibility security operations.",
   },
 ];
+
+const resumeExperience: ExperienceEntry[] = [
+  {
+    company: "TechSGT.com",
+    role: "Owner / Operator",
+    dates: "07/22/2020 - Present",
+    location: "Murfreesboro, TN",
+    text: "Veteran-owned IT networking, low-voltage cabling, break/fix, installation, and field-service company. Supports business clients with network infrastructure, cabling, device installs, troubleshooting, and contractor coordination.",
+    proofLabel: "View related proof",
+    proofHref: "https://techsgt.com/",
+  },
+  {
+    company: "IT Contractor",
+    role: "IT Field Engineer",
+    dates: "01/03/2013 - Present",
+    location: "Nationwide, US",
+    text: "Nationwide field engineering across Windows migrations, PC imaging, retail, foodservice, hotels, healthcare, new construction, financial services, government facilities, POS systems, LAN/WAN, DAS, low-voltage cabling, servers, switches, routers, modems, and network device repair/maintenance.",
+  },
+  {
+    company: "IES Communications",
+    role: "Data Center Manager",
+    dates: "03/01/2021 - 07/23/2022",
+    location: "Nashville, TN",
+    text: "Managed and optimized data center operations at EdgeConneX Nashville, supporting infrastructure, compliance, security, network management, system integration, and expert-level technical support.",
+  },
+  {
+    company: "Von Technologies",
+    role: "IT Field Engineer",
+    dates: "07/17/2017 - 02/01/2021",
+    location: "Nationwide, US",
+    text: 'Road-warrior field engineer supporting Wi-Fi surveys, network implementations, Pepsi and Frito-Lay plant projects, Valvoline "BayTracker" cabling systems, and Hilton Hotels "Connected Room" deployments.',
+  },
+  {
+    company: "Hooters Restaurants of America",
+    role: "Manager",
+    dates: "2010 - 2013",
+    location: "Colorado Springs, CO",
+    text: "Managed front-of-house and back-of-house recruiting, training, supervision, HR implementation, local store marketing, POS procedures, and back-office computer operations.",
+  },
+  {
+    company: "Blue Martini",
+    role: "Manager",
+    dates: "2004 - 2010",
+    location: "West Palm Beach, FL",
+    text: "Managed recruiting, training, scheduling, cash handling, and back-office workflow systems across multiple outlets.",
+  },
+  {
+    company: "TGI Friday's",
+    role: "Bartender",
+    dates: "2000 - 2004",
+    location: "San Diego, CA and West Palm Beach, FL",
+    text: "Worked across several locations in high-volume customer-facing service and bar operations.",
+  },
+  {
+    company: "U.S. Navy - NR SEAL Team 3",
+    role: "Radioman / Information Systems Technician, Petty Officer 2nd Class",
+    dates: "01/07/1997 - 01/07/2000",
+    location: "San Diego, CA",
+    text: "Operated complex networked computer and communications systems supporting air, ground, ship, submarine, satellite data, and special intelligence communications.",
+  },
+  {
+    company: "U.S. Marine Corps - 4th ANGLICO",
+    role: "Field Radio Operator, Sergeant",
+    dates: "11/03/1988 - 11/03/1996",
+    location: "West Palm Beach, FL / Desert Shield & Desert Storm",
+    text: "Served as Field Radio Operator with Task Force Sheppard, 2nd ANGLICO, 1st Surveillance, Reconnaissance & Intelligence Group, I MEF. Operated PLRS, DCTs, tactical facsimile systems, RF communications, and cryptographic frequency-hopping equipment during Desert Shield/Storm. Awarded Navy Achievement Medal for heroic achievement and superior performance of duties.",
+    proofLabel: "View related proof",
+    proofHref:
+      "https://techsgt.com/wp-content/uploads/2026/05/MARINE-COMMS-IN-DESERT-SHIELD-AND-DESERT-STORM.pdf",
+  },
+  {
+    company: "Wackenhut Security",
+    role: "Armed Security Officer / Site Supervisor / Road Supervisor",
+    dates: "1992 - 1996",
+    location: "Boca Raton and West Palm Beach, FL",
+    text: "Served in site supervisor and road supervisor roles supporting high-responsibility security operations.",
+  },
+];
+
+const timelineExperience = resumeExperience.length
+  ? resumeExperience
+  : experience.map((job) => ({ ...job, location: "" }));
 
 const strengths = [
   {
@@ -165,9 +257,160 @@ const mainProjects = [
     text: "A field-first FDE profile built around deployments, troubleshooting, communication, and recovery.",
     href: "/openai-fde",
   },
+  {
+    title: "GPT Swarm / AI Agent Lab",
+    text: "A working lab of role-based GPTs built around field operations, legal workflows, WebWalletX, QA, and support.",
+    href: "/gpt-swarm",
+  },
 ];
 
 const projectPages: ProjectProfilePageContent[] = [
+  {
+    path: "/gpt-swarm",
+    title: "GPT Swarm / AI Agent Lab",
+    eyebrow: "Role-based AI assistants",
+    subtitle:
+      "A working collection of role-based AI assistants built to support field operations, legal workflows, WebWalletX, compliance, development, QA, and customer support.",
+    overview: {
+      title: "Overview",
+      paragraphs: [
+        "This is Scott's AI agent lab: a practical swarm of specialized GPTs built around real workflows instead of abstract demos. Each assistant has a role, a job, and a target operating environment.",
+      ],
+    },
+    featureSections: [],
+    categorySections: [
+      {
+        title: "Swarm Categories",
+        categories: [
+          {
+            title: "Field Operations",
+            description:
+              "Assistants for work orders, field surveys, network deployments, closing notes, and technician support.",
+            examples: [
+              "TechSGT.com AI Field Tech Assistant",
+              "TechSGT Network Deployment Commander",
+              "Work Order Prompt Generator 5.0",
+              "Velocity Survey Guide",
+            ],
+          },
+          {
+            title: "Legal Workflow Systems",
+            description:
+              "Assistants for pro se litigation organization, legal media framing, jurisdiction review, case strategy, and document-heavy workflows.",
+            examples: [
+              "Pro Se GPT",
+              "Jurisdiction Finder Pro Se GPT",
+              "Alex Reyes",
+              "Maggie Legal Assistant GPT",
+              "David Class Action Counsel",
+            ],
+          },
+          {
+            title: "WebWalletX Product Team",
+            description:
+              "A role-based product team covering support, compliance, security, development, UX, QA, and project management.",
+            examples: [
+              "WebWalletX AI Support",
+              "WebWalletX Compliance Officer",
+              "WebWalletX Security Analyst",
+              "WebWalletX Back-End Developer",
+              "WebWalletX Front-End Developer",
+              "WebWalletX QA Engineer",
+              "WebWalletX Project Manager",
+              "WebWalletX UX Designer",
+            ],
+          },
+          {
+            title: "Business / Operations",
+            description:
+              "Assistants for scheduling, bid strategy, business cards, underwriter support, and startup planning.",
+            examples: [
+              "SAM Bid Strategist",
+              "Event Scheduler",
+              "Business Card Collector",
+              "AI Businesses Agents and Ideas",
+              "TechSGT.com GPT Underwriter for Fund TN",
+            ],
+          },
+        ],
+      },
+    ],
+    copySections: [
+      {
+        title: "Why It Matters",
+        paragraphs: [
+          "The swarm demonstrates Scott's ability to design AI systems around real operating roles. It is not one chatbot trying to do everything. It is a distributed support model where each assistant handles a defined workflow.",
+        ],
+      },
+      {
+        title: "FDE Relevance",
+        paragraphs: [
+          "Forward deployed work requires translating messy human operations into usable systems. This GPT swarm shows how Scott thinks: define the mission, separate roles, build assistants around the work, and keep humans in control.",
+        ],
+      },
+    ],
+    directorySection: {
+      title: "GPT Directory",
+      links: [
+        {
+          label: "TechSGT.com AI Field Tech Assistant",
+          href: "https://chatgpt.com/g/g-69a2382343bc8191aee5f6a8dec9b98a-techsgt-com-ai-field-tech-assistant",
+        },
+        {
+          label: "TechSGT Network Deployment Commander",
+          href: "https://chatgpt.com/g/g-69a71c3dfaf88191bc36c612a6c8fa7b-techsgt-network-deployment-commander",
+        },
+        {
+          label: "Work Order Prompt Generator 5.0",
+          href: "https://chatgpt.com/g/g-68caaed343348191b87fc16802f02063-work-order-prompt-generator-5-0",
+        },
+        {
+          label: "Pro Se GPT",
+          href: "https://chatgpt.com/g/g-u8i7Axisa-pro-se-gpt",
+        },
+        {
+          label: "Jurisdiction Finder Pro Se GPT",
+          href: "https://chatgpt.com/g/g-686b4790cd488191b6cf4f87bdf31cd0-jurisdiction-finder-pro-se-gpt",
+        },
+        {
+          label: "Alex Reyes",
+          href: "https://chatgpt.com/g/g-6833abdd64c48191bfb963915341be1c-alex-reyes",
+        },
+        {
+          label: "WebWalletX AI Support",
+          href: "https://chatgpt.com/g/g-tojGDo9qH-webwalletx-ai-support",
+        },
+        {
+          label: "WebWalletX Compliance Officer",
+          href: "https://chatgpt.com/g/g-zhRKcEsVC-webwalletx-compliance-officer",
+        },
+        {
+          label: "WebWalletX Security Analyst",
+          href: "https://chatgpt.com/g/g-VfCbBH7lp-webwalletx-security-analyst",
+        },
+        {
+          label: "WebWalletX Back-End Developer",
+          href: "https://chatgpt.com/g/g-WA2V7y6dI-webwalletx-back-end-developer",
+        },
+        {
+          label: "WebWalletX Front-End Developer",
+          href: "https://chatgpt.com/g/g-2CeU47a0r-webwalletx-front-end-developer",
+        },
+        {
+          label: "WebWalletX QA Engineer",
+          href: "https://chatgpt.com/g/g-FNTFwnscE-webwalletx-qa-engineer",
+        },
+        {
+          label: "WebWalletX Project Manager",
+          href: "https://chatgpt.com/g/g-0qW0pFQ1h-webwalletx-project-manager",
+        },
+        {
+          label: "WebWalletX UX Designer",
+          href: "https://chatgpt.com/g/g-M2tSOZZvm-webwalletx-ux-designer",
+        },
+      ],
+    },
+  },
   {
     path: "/case-vault",
     title: "AI Pro Se GPT Case Vault",
@@ -541,14 +784,25 @@ export default function App() {
         <h2>Experience Timeline</h2>
 
         <div className="timeline">
-          {experience.map((job) => (
+          {timelineExperience.map((job) => (
             <article className="job" key={job.company}>
-              <div>
+              <div className="jobHeader">
                 <h3>{job.company}</h3>
-                <p className="role">{job.role}</p>
+                <p className="dates">{job.dates}</p>
               </div>
-              <p className="dates">{job.dates}</p>
+              <p className="role">{job.role}</p>
+              <p className="jobLocation">{job.location}</p>
               <p>{job.text}</p>
+              {job.proofHref ? (
+                <a
+                  className="timelineProofLink"
+                  href={job.proofHref}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {job.proofLabel}
+                </a>
+              ) : null}
             </article>
           ))}
         </div>

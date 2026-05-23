@@ -16,6 +16,23 @@ type CopySection = {
   }[];
 };
 
+type CategorySection = {
+  title: string;
+  categories: {
+    title: string;
+    description: string;
+    examples: string[];
+  }[];
+};
+
+type DirectorySection = {
+  title: string;
+  links: {
+    label: string;
+    href: string;
+  }[];
+};
+
 export type ProjectProfilePageContent = {
   path: string;
   title: string;
@@ -23,7 +40,9 @@ export type ProjectProfilePageContent = {
   subtitle: string;
   overview: CopySection;
   featureSections: FeatureSection[];
+  categorySections?: CategorySection[];
   copySections: CopySection[];
+  directorySection?: DirectorySection;
   quote?: string;
 };
 
@@ -79,6 +98,29 @@ export default function ProjectProfilePage({ content }: ProjectProfilePageProps)
         </section>
       ))}
 
+      {content.categorySections?.map((section) => (
+        <section className="projectDetailSection" key={section.title}>
+          <h2>{section.title}</h2>
+
+          <div className="projectCategoryGrid">
+            {section.categories.map((category) => (
+              <article className="projectCategoryCard" key={category.title}>
+                <h3>{category.title}</h3>
+                <p>{category.description}</p>
+                <div className="projectExampleList">
+                  <span>Example GPTs</span>
+                  <ul>
+                    {category.examples.map((example) => (
+                      <li key={example}>{example}</li>
+                    ))}
+                  </ul>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      ))}
+
       {content.copySections.map((section) => (
         <section className="projectDetailSection" key={section.title}>
           <h2>{section.title}</h2>
@@ -101,6 +143,24 @@ export default function ProjectProfilePage({ content }: ProjectProfilePageProps)
           ) : null}
         </section>
       ))}
+
+      {content.directorySection ? (
+        <section className="projectDetailSection">
+          <h2>{content.directorySection.title}</h2>
+          <div className="projectDirectoryGrid">
+            {content.directorySection.links.map((link) => (
+              <a
+                href={link.href}
+                key={link.href}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </section>
+      ) : null}
 
       {content.quote ? (
         <section className="projectDetailSection projectQuoteBlock">
