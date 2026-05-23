@@ -13,6 +13,7 @@ import AlexThanks from "./components/AlexThanks";
 import ProjectProfilePage, {
   type ProjectProfilePageContent,
 } from "./components/ProjectProfilePage";
+import SiteMapNav from "./components/SiteMapNav";
 
 function HeroVideoDock() {
   return (
@@ -752,23 +753,48 @@ export default function App() {
   const projectPage = projectPages.find((page) => page.path === pathname);
 
   if (pathname === "/book/thanks") {
-    return <BookingThanks />;
+    return (
+      <>
+        <BookingThanks />
+        <SiteMapNav />
+      </>
+    );
   }
 
   if (pathname === "/book") {
-    return <BookingPage />;
+    return (
+      <>
+        <BookingPage />
+        <SiteMapNav />
+      </>
+    );
   }
 
   if (pathname === "/alex/thanks") {
-    return <AlexThanks />;
+    return (
+      <>
+        <AlexThanks />
+        <SiteMapNav />
+      </>
+    );
   }
 
   if (pathname === "/alex") {
-    return <AlexLanding />;
+    return (
+      <>
+        <AlexLanding />
+        <SiteMapNav />
+      </>
+    );
   }
 
   if (projectPage) {
-    return <ProjectProfilePage content={projectPage} />;
+    return (
+      <>
+        <ProjectProfilePage content={projectPage} />
+        <SiteMapNav />
+      </>
+    );
   }
 
   return (
@@ -928,6 +954,7 @@ export default function App() {
       </section>
 
       <AlexAssistant />
+      <SiteMapNav />
     </main>
   );
 }

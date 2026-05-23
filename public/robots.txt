@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://scottjewett.me/sitemap.xml
