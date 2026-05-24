@@ -1,4 +1,6 @@
 import AlexAssistant from "./components/AlexAssistant";
+import { useRef, useState, type CSSProperties, type PointerEvent } from "react";
+
 import {
   alexAvatarUrl,
   alexIntroVideoUrl,
@@ -181,6 +183,33 @@ const resumeExperience: ExperienceEntry[] = [
 const timelineExperience = resumeExperience.length
   ? resumeExperience
   : experience.map((job) => ({ ...job, location: "" }));
+
+const dischargeDocuments = [
+  {
+    id: "usmc-page-1",
+    branch: "USMC Honorable Discharge",
+    label: "USMC Honorable Discharge - Page 1",
+    imageUrl:
+      "https://techsgt.com/wp-content/uploads/2026/05/USMC-Hon-Discharge-1.png",
+    audioUrl: "/the_marines_hymn.mp3",
+  },
+  {
+    id: "usmc-page-2",
+    branch: "USMC Honorable Discharge",
+    label: "USMC Honorable Discharge - Page 2",
+    imageUrl:
+      "https://techsgt.com/wp-content/uploads/2026/05/USMC-Hon-Discharge-2.png",
+    audioUrl: "/the_marines_hymn.mp3",
+  },
+  {
+    id: "navy",
+    branch: "Navy Honorable Discharge",
+    label: "Navy Honorable Discharge",
+    imageUrl:
+      "https://techsgt.com/wp-content/uploads/2026/05/Navy-Hon-Discharge.webp",
+    audioUrl: "/anchors-aweigh.mp3",
+  },
+];
 
 const strengths = [
   {
@@ -748,6 +777,203 @@ const projectPages: ProjectProfilePageContent[] = [
   },
 ];
 
+function escapeDocumentText(value: string) {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+function openDischargeDocument(document: (typeof dischargeDocuments)[number]) {
+  const popup = window.open("", "_blank");
+
+  if (!popup) {
+    window.open(document.imageUrl, "_blank", "noreferrer");
+    return;
+  }
+
+  const title = escapeDocumentText(document.label);
+  const imageUrl = encodeURI(document.imageUrl);
+  const audioUrl = encodeURI(document.audioUrl);
+
+  popup.document.write(`<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>${title}</title>
+    <style>
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 72px 24px 24px;
+        background: #020617;
+        color: #e5e7eb;
+        font-family: Inter, Arial, sans-serif;
+      }
+      img {
+        display: block;
+        max-width: min(1100px, 100%);
+        max-height: calc(100vh - 128px);
+        object-fit: contain;
+        border-radius: 14px;
+        border: 1px solid rgba(148, 163, 184, 0.24);
+        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
+        background: white;
+      }
+      button {
+        position: fixed;
+        top: 18px;
+        right: 18px;
+        min-height: 42px;
+        padding: 0 16px;
+        border: 1px solid rgba(148, 163, 184, 0.28);
+        border-radius: 999px;
+        background: rgba(15, 23, 42, 0.94);
+        color: #f8fafc;
+        font: inherit;
+        font-weight: 800;
+        cursor: pointer;
+      }
+      .audioPanel {
+        position: fixed;
+        left: 18px;
+        right: 90px;
+        top: 18px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+      }
+      .audioPanel p {
+        margin: 0;
+        color: #cbd5e1;
+        font-size: 14px;
+      }
+      .audioPanel button {
+        position: static;
+      }
+    </style>
+  </head>
+  <body>
+    <button type="button" onclick="window.close()">Close</button>
+    <div class="audioPanel">
+      <button type="button" id="playMusic">Play music</button>
+      <p id="audioStatus">Music may start automatically. If not, select Play music.</p>
+    </div>
+    <img src="${imageUrl}" alt="${title}" />
+    <audio id="branchAudio" src="${audioUrl}" loop autoplay></audio>
+    <script>
+      const audio = document.getElementById("branchAudio");
+      const status = document.getElementById("audioStatus");
+      const playButton = document.getElementById("playMusic");
+
+      function playAudio() {
+        audio.play()
+          .then(() => {
+            status.textContent = "Music playing while this window is open.";
+          })
+          .catch(() => {
+            status.textContent = "Browser autoplay is blocked. Select Play music to start audio.";
+          });
+      }
+
+      playButton.addEventListener("click", playAudio);
+      playAudio();
+    </script>
+  </body>
+</html>`);
+  popup.document.close();
+  popup.opener = null;
+}
+
+function DraggableDischargeImage({
+  className = "",
+  document,
+}: {
+  className?: string;
+  document: (typeof dischargeDocuments)[number];
+}) {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const dragStartRef = useRef({
+    pointerX: 0,
+    pointerY: 0,
+    startX: 0,
+    startY: 0,
+  });
+  const didDragRef = useRef(false);
+
+  function handlePointerDown(event: PointerEvent<HTMLButtonElement>) {
+    dragStartRef.current = {
+      pointerX: event.clientX,
+      pointerY: event.clientY,
+      startX: position.x,
+      startY: position.y,
+    };
+    didDragRef.current = false;
+    event.currentTarget.setPointerCapture(event.pointerId);
+  }
+
+  function handlePointerMove(event: PointerEvent<HTMLButtonElement>) {
+    if (!event.currentTarget.hasPointerCapture(event.pointerId)) {
+      return;
+    }
+
+    const nextX =
+      dragStartRef.current.startX +
+      event.clientX -
+      dragStartRef.current.pointerX;
+    const nextY =
+      dragStartRef.current.startY +
+      event.clientY -
+      dragStartRef.current.pointerY;
+
+    if (Math.abs(nextX - position.x) > 2 || Math.abs(nextY - position.y) > 2) {
+      didDragRef.current = true;
+    }
+
+    setPosition({ x: nextX, y: nextY });
+  }
+
+  function handlePointerUp(event: PointerEvent<HTMLButtonElement>) {
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+      event.currentTarget.releasePointerCapture(event.pointerId);
+    }
+  }
+
+  function handleClick() {
+    if (didDragRef.current) {
+      didDragRef.current = false;
+      return;
+    }
+
+    openDischargeDocument(document);
+  }
+
+  return (
+    <button
+      className={`dischargeImageButton ${className}`}
+      type="button"
+      style={
+        {
+          "--drag-x": `${position.x}px`,
+          "--drag-y": `${position.y}px`,
+        } as CSSProperties
+      }
+      onClick={handleClick}
+      onPointerDown={handlePointerDown}
+      onPointerMove={handlePointerMove}
+      onPointerUp={handlePointerUp}
+    >
+      <img src={document.imageUrl} alt={document.label} draggable={false} />
+    </button>
+  );
+}
+
 export default function App() {
   const pathname = window.location.pathname.replace(/\/+$/, "") || "/";
   const projectPage = projectPages.find((page) => page.path === pathname);
@@ -845,6 +1071,33 @@ export default function App() {
           infrastructure problems, and the kind of operational communication it
           takes to get systems working again.
         </p>
+
+        <a
+          className="badge badgeLink resumeHeroLink"
+          href="https://techsgt.com/wp-content/uploads/2026/05/Scott-Jewett-Resume.pdf"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Open Scott Jewett resume"
+        >
+          Resume
+        </a>
+
+        <div className="dischargeGrid heroDischargeGrid">
+          <div className="dischargeStack" aria-label="USMC honorable discharge records">
+            {dischargeDocuments.slice(0, 2).map((document, index) => (
+              <DraggableDischargeImage
+                className={index === 1 ? "dischargeImageButtonOverlay" : ""}
+                document={document}
+                key={document.id}
+              />
+            ))}
+          </div>
+
+          <DraggableDischargeImage
+            className="dischargeNavyButton"
+            document={dischargeDocuments[2]}
+          />
+        </div>
       </section>
 
       <section className="section projectSection">

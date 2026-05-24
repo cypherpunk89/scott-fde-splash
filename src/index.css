@@ -142,6 +142,10 @@ a {
   transform: translateY(-1px);
 }
 
+.resumeHeroLink {
+  margin: 26px auto 0;
+}
+
 h1 {
   margin: 0;
   font-size: clamp(48px, 8vw, 88px);
@@ -225,6 +229,25 @@ h1 {
 
   .heroAvatar {
     width: 96px;
+  }
+
+  .dischargeStack .dischargeImageButton:first-child {
+    max-width: 210px;
+  }
+
+  .dischargeImageButtonOverlay {
+    left: 116px;
+    max-width: 118px;
+  }
+
+  .dischargeNavyButton {
+    max-width: 210px;
+    --doc-rotate: 4deg;
+  }
+
+  .dischargeNavyButton:hover,
+  .dischargeNavyButton:focus-visible {
+    transform: translate(var(--drag-x), calc(var(--drag-y) - 3px)) rotate(var(--doc-rotate));
   }
 }
 
@@ -907,6 +930,114 @@ h2 {
   background: rgba(56, 189, 248, 0.12);
   border-color: rgba(125, 211, 252, 0.4);
   transform: translateY(-2px);
+}
+
+.dischargeSection {
+  overflow: hidden;
+}
+
+.heroDischargeGrid {
+  position: absolute;
+  left: 48px;
+  right: 48px;
+  bottom: -42px;
+  z-index: 3;
+  max-width: none;
+  margin: 0;
+  pointer-events: none;
+}
+
+.dischargeGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.9fr);
+  gap: 28px;
+  align-items: center;
+}
+
+.dischargeStack {
+  position: relative;
+  min-height: 220px;
+}
+
+.dischargeImageButton {
+  --drag-x: 0px;
+  --drag-y: 0px;
+  --doc-rotate: 0deg;
+  display: grid;
+  width: 100%;
+  padding: 0;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 14px;
+  background: #ffffff;
+  color: #f8fafc;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+  text-align: left;
+  box-shadow: 0 22px 58px rgba(2, 6, 23, 0.35);
+  pointer-events: auto;
+  touch-action: none;
+  user-select: none;
+  transform: translate(var(--drag-x), var(--drag-y)) rotate(var(--doc-rotate));
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dischargeImageButton:hover,
+.dischargeImageButton:focus-visible {
+  border-color: rgba(125, 211, 252, 0.42);
+  box-shadow: 0 26px 68px rgba(2, 6, 23, 0.44);
+  transform: translate(var(--drag-x), calc(var(--drag-y) - 3px)) rotate(var(--doc-rotate));
+}
+
+.dischargeImageButton img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 14px;
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.18);
+}
+
+.dischargeStack .dischargeImageButton:first-child {
+  position: absolute;
+  left: 0;
+  top: 8px;
+  max-width: 220px;
+  --doc-rotate: -2deg;
+}
+
+.dischargeStack .dischargeImageButton:first-child:hover,
+.dischargeStack .dischargeImageButton:first-child:focus-visible {
+  transform: translate(var(--drag-x), calc(var(--drag-y) - 3px)) rotate(var(--doc-rotate));
+}
+
+.dischargeImageButtonOverlay {
+  position: absolute;
+  left: -8px;
+  bottom: 0;
+  max-width: 132px;
+  --doc-rotate: 1deg;
+  z-index: 2;
+}
+
+.dischargeImageButtonOverlay:hover,
+.dischargeImageButtonOverlay:focus-visible {
+  transform: translate(var(--drag-x), calc(var(--drag-y) - 3px)) rotate(var(--doc-rotate));
+}
+
+.dischargeNavyButton {
+  max-width: 225px;
+  justify-self: end;
+  margin-right: 0;
+  margin-top: 48px;
+  --doc-rotate: 11deg;
+}
+
+.dischargeNavyButton:hover,
+.dischargeNavyButton:focus-visible {
+  transform: translate(var(--drag-x), calc(var(--drag-y) - 3px)) rotate(var(--doc-rotate));
 }
 
 .callout {
@@ -1680,6 +1811,48 @@ h2 {
 
   .timelineProofLink {
     width: 100%;
+  }
+
+  .dischargeGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .heroDischargeGrid {
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    margin-top: 18px;
+    margin-bottom: 0;
+  }
+
+  .dischargeStack {
+    min-height: 220px;
+  }
+
+  .dischargeStack .dischargeImageButton:first-child {
+    left: 0;
+    top: 8px;
+    max-width: 62%;
+  }
+
+  .dischargeImageButtonOverlay {
+    left: auto;
+    right: 0;
+    bottom: 24px;
+    max-width: 38%;
+  }
+
+  .dischargeNavyButton {
+    max-width: 62%;
+    justify-self: center;
+    margin-top: 0;
+    --doc-rotate: 2deg;
+  }
+
+  .dischargeNavyButton:hover,
+  .dischargeNavyButton:focus-visible {
+    transform: translate(var(--drag-x), calc(var(--drag-y) - 3px)) rotate(var(--doc-rotate));
   }
 
   .alexGrid {
