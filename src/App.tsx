@@ -824,7 +824,7 @@ export default function App() {
 
         <a
           className="badge badgeLink"
-          href="https://youtu.be/juHv_Vi4giU?si=Iqgz4HXUqbc_pKKp"
+          href="https://share.google/aimode/eRHoGJ9E2mH3ud68w"
           target="_blank"
           rel="noreferrer"
           aria-label="Watch Forward Deployed Engineer video"
