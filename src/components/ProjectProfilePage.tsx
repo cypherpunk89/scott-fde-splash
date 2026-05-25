@@ -52,6 +52,15 @@ type WritingSample = {
   downloadLabel?: string;
 };
 
+type HeroResumePreview = {
+  href: string;
+  label: string;
+  pages: {
+    src: string;
+    alt: string;
+  }[];
+};
+
 export type ProjectProfilePageContent = {
   path: string;
   title: string;
@@ -62,6 +71,7 @@ export type ProjectProfilePageContent = {
         label: string;
         className?: string;
       };
+  heroResumePreview?: HeroResumePreview;
   overview: CopySection;
   featureSections: FeatureSection[];
   categorySections?: CategorySection[];
@@ -197,7 +207,13 @@ export default function ProjectProfilePage({ content }: ProjectProfilePageProps)
 
         <div className="projectGlow" aria-hidden="true" />
 
-        <div className={content.heroVideo ? "projectHeroSplit" : undefined}>
+        <div
+          className={
+            content.heroVideo || content.heroResumePreview
+              ? "projectHeroSplit"
+              : undefined
+          }
+        >
           <div className="projectHeroCopy">
             <p className="alexEyebrow">{content.eyebrow}</p>
             <h1>{content.title}</h1>
@@ -210,6 +226,27 @@ export default function ProjectProfilePage({ content }: ProjectProfilePageProps)
               label={content.heroVideo.label}
               src={content.heroVideo.src}
             />
+          ) : null}
+
+          {content.heroResumePreview ? (
+            <a
+              className="heroResumePreviewStack"
+              href={content.heroResumePreview.href}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={content.heroResumePreview.label}
+            >
+              {content.heroResumePreview.pages.map((page, index) => (
+                <img
+                  className={`heroResumePreviewPage heroResumePreviewPage${
+                    index + 1
+                  }`}
+                  key={page.src}
+                  src={page.src}
+                  alt={page.alt}
+                />
+              ))}
+            </a>
           ) : null}
         </div>
       </section>

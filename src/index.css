@@ -604,6 +604,64 @@ h2 {
   bottom: 14px;
 }
 
+.heroResumePreviewStack {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: min(100%, 420px);
+  min-height: 440px;
+  margin-left: auto;
+  color: inherit;
+  text-decoration: none;
+  outline: none;
+}
+
+.heroResumePreviewPage {
+  position: absolute;
+  top: 42px;
+  right: 0;
+  width: 74%;
+  max-width: 290px;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 14px;
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow:
+    0 24px 52px rgba(2, 6, 23, 0.42),
+    0 0 0 1px rgba(125, 211, 252, 0.18);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.heroResumePreviewPage1 {
+  z-index: 1;
+  transform: translate(-82px, 20px) rotate(-4deg);
+}
+
+.heroResumePreviewPage2 {
+  z-index: 2;
+  transform: translate(0, 0) rotate(5deg);
+}
+
+.heroResumePreviewStack:hover .heroResumePreviewPage,
+.heroResumePreviewStack:focus-visible .heroResumePreviewPage {
+  border-color: rgba(125, 211, 252, 0.72);
+  box-shadow:
+    0 28px 60px rgba(2, 6, 23, 0.5),
+    0 0 0 1px rgba(125, 211, 252, 0.28);
+}
+
+.heroResumePreviewStack:hover .heroResumePreviewPage1,
+.heroResumePreviewStack:focus-visible .heroResumePreviewPage1 {
+  transform: translate(-92px, 12px) rotate(-5deg);
+}
+
+.heroResumePreviewStack:hover .heroResumePreviewPage2,
+.heroResumePreviewStack:focus-visible .heroResumePreviewPage2 {
+  transform: translate(10px, -8px) rotate(6deg);
+}
+
 .projectDetailSection {
   margin-top: 24px;
   padding: 30px;
@@ -1892,6 +1950,35 @@ h2 {
 
   .projectHeroVideoFrame:has(.standardHeroVideo) {
     margin: 0 auto;
+  }
+
+  .heroResumePreviewStack {
+    width: min(100%, 360px);
+    min-height: 360px;
+    margin: 8px auto 0;
+  }
+
+  .heroResumePreviewPage {
+    width: 72%;
+    max-width: 230px;
+  }
+
+  .heroResumePreviewPage1 {
+    transform: translate(-58px, 26px) rotate(-4deg);
+  }
+
+  .heroResumePreviewPage2 {
+    transform: translate(34px, 0) rotate(5deg);
+  }
+
+  .heroResumePreviewStack:hover .heroResumePreviewPage1,
+  .heroResumePreviewStack:focus-visible .heroResumePreviewPage1 {
+    transform: translate(-62px, 20px) rotate(-5deg);
+  }
+
+  .heroResumePreviewStack:hover .heroResumePreviewPage2,
+  .heroResumePreviewStack:focus-visible .heroResumePreviewPage2 {
+    transform: translate(38px, -6px) rotate(6deg);
   }
 
   .projectLinkList a {

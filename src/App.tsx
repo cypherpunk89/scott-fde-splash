@@ -688,6 +688,20 @@ const projectPages: ProjectProfilePageContent[] = [
     eyebrow: "AI reliability under real conditions",
     subtitle:
       "A research direction focused on how AI systems behave when the environment is unclear and humans have to adapt.",
+    heroResumePreview: {
+      href: "/Scott_Jewett_AI_Reliability_FDE_Resume.pdf",
+      label: "Open Scott Jewett AI Reliability FDE Resume PDF",
+      pages: [
+        {
+          src: "/resume-page-1.png",
+          alt: "Scott Jewett AI Reliability FDE resume page 1 preview",
+        },
+        {
+          src: "/resume-page-2.png",
+          alt: "Scott Jewett AI Reliability FDE resume page 2 preview",
+        },
+      ],
+    },
     overview: {
       title: "Background",
       paragraphs: [
