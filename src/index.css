@@ -674,6 +674,109 @@ h2 {
   transform: translateY(-2px);
 }
 
+.writingSampleSection {
+  background:
+    linear-gradient(135deg, rgba(14, 165, 233, 0.12), rgba(15, 23, 42, 0.9)),
+    rgba(15, 23, 42, 0.82);
+}
+
+.writingSampleHeader {
+  max-width: 900px;
+}
+
+.writingSampleHeader h2 {
+  margin-top: 14px;
+}
+
+.writingSampleTag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: rgba(37, 99, 235, 0.28);
+  border: 1px solid rgba(125, 211, 252, 0.22);
+  color: #bfdbfe;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.writingQuoteGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.writingQuoteGrid blockquote {
+  margin: 0;
+  padding: 20px;
+  border-radius: 18px;
+  background: rgba(2, 6, 23, 0.76);
+  border: 1px solid rgba(125, 211, 252, 0.2);
+  color: #f8fafc;
+  font-size: 20px;
+  font-weight: 850;
+  line-height: 1.5;
+}
+
+.writingSampleConnection {
+  margin-top: 18px !important;
+  color: #bfdbfe !important;
+  font-weight: 750;
+}
+
+.writingSampleActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.writingSampleToggle,
+.writingSampleDownload {
+  min-height: 44px;
+  padding: 0 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  color: #f8fafc;
+  font: inherit;
+  font-weight: 850;
+}
+
+.writingSampleToggle {
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.06);
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.writingSampleToggle:hover,
+.writingSampleToggle:focus-visible {
+  background: rgba(56, 189, 248, 0.12);
+  border-color: rgba(125, 211, 252, 0.4);
+  transform: translateY(-2px);
+}
+
+.writingSampleDownload {
+  cursor: not-allowed;
+  background: rgba(15, 23, 42, 0.58);
+  color: #94a3b8;
+}
+
+.writingSampleArticle {
+  margin-top: 24px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(148, 163, 184, 0.16);
+}
+
+.writingSampleArticle p {
+  max-width: 920px;
+  font-size: 17px;
+  line-height: 1.78;
+}
+
 .projectFeatureGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
@@ -1797,6 +1900,14 @@ h2 {
 
   .projectCategoryGrid {
     grid-template-columns: 1fr;
+  }
+
+  .writingQuoteGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .writingSampleActions {
+    display: grid;
   }
 
   .jobHeader {

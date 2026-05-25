@@ -299,6 +299,22 @@ const mainProjects = [
   },
 ];
 
+const aiReliabilityWritingSample = [
+  "AI systems often look strongest in the places where the work is cleanest. A demo has a clear prompt, a known objective, a tidy interface, and a controlled path to success. The model is given enough context to sound useful, and the environment rarely pushes back. In that setting, reliability can look better than it really is.",
+  "Real operational environments are different. In the field, the network closet may not match the diagram. Switch ports may be mislabeled. The last technician may have left incomplete notes. A customer may be standing nearby asking when the system will be back online. A remote engineer may be giving instructions based on an outdated floor plan. The system might be partially working, which can be more dangerous than a clean failure because everyone assumes the problem is smaller than it is.",
+  "This is where AI systems can fail quietly. A quiet failure is not a dramatic hallucination or an obviously wrong answer. It is an assistant that sounds confident when the situation calls for caution. It is a recommendation that skips over missing information. It is a troubleshooting step that assumes the port label is correct, the handoff is known, the device inventory is current, or the person on site has confirmed what the remote team thinks is true. The output may read well, but the operational risk has increased.",
+  "That matters because many real deployments are not clean technical puzzles. They are coordination problems under pressure. Scott Jewett's work sits in that environment. His background spans military communications, field engineering, infrastructure troubleshooting, low-voltage and network deployments, data center operations, and AI workflow building. That combination gives him a practical view of a reliability problem AI teams increasingly need to understand: systems must behave well when the world is incomplete, undocumented, and moving.",
+  "In military communications, one of the first lessons is that assumptions can break the mission. Equipment status, frequency plans, handoffs, signal paths, authentication, and message discipline all matter. When information is missing, the answer is not to pretend it is present. The answer is to verify, escalate, mark uncertainty, and keep the human decision-maker oriented.",
+  "Field engineering teaches the same lesson in another form. A technician may arrive at a site where the documentation says one thing and the rack says another. The customer wants speed, but the infrastructure demands patience. A mislabeled cable can take down a point-of-sale system. A rushed change can make a partial outage worse. A remote team may know the intended architecture, while the person on site sees the actual condition. Reliability depends on combining both views without letting either one become absolute.",
+  "AI assistants deployed into these environments need more than fluent answers. They need escalation logic. They need failure-mode awareness. They need to recognize when a situation is under-specified. They need to support operators instead of replacing them. A reliable assistant should ask for missing information when that information affects the outcome, avoid confident guessing, recommend human confirmation when the cost of being wrong is high, identify likely failure modes, and provide an escalation path when risk requires it.",
+  "These are the behaviors Scott's Python reliability harness is designed to test. The project uses realistic field scenarios and rule-based checks to evaluate whether assistant responses ask for missing information, avoid guessing, recommend human confirmation, avoid unsafe certainty, identify failure modes, and include escalation paths when required. The scenarios include undocumented network closets, mislabeled switch ports, POS outages during business hours, camera systems offline after power events, unclear fiber handoffs, conflicting remote instructions, access control failures, and risky change approval without onsite validation.",
+  "Those examples are ordinary in the best sense. They are not speculative edge cases. They are the kinds of situations where operational reliability is tested every day. That is why they are useful. AI safety is not only about preventing extreme failures. It is also about preventing everyday systems from becoming quietly overconfident in the moments when humans most need clarity.",
+  "The phrase human-in-the-loop is often used loosely. In real operations, the human is not a ceremonial checkpoint. The human is the one who sees the room, hears the customer, notices the undocumented patch cable, recognizes that the remote instruction does not match the site condition, and understands when a technically valid step is operationally unsafe. AI should make that person stronger. It should reduce cognitive load, organize evidence, surface risks, and help build a plan. It should not pressure the operator into trusting a clean answer for a messy situation.",
+  "Unsafe certainty is one of the most important failure modes to test. Models are trained to be helpful, and helpfulness can become a problem when the system fills gaps too smoothly. In a clean demo, that fluency feels impressive. In a live environment, it can hide the difference between known facts, assumptions, and guesses. Reliable AI should label those categories clearly so operators can see what is confirmed, what is assumed, what could break, what can be checked safely, and where escalation belongs.",
+  "Forward deployed engineering sits in the same territory. It requires technical ability, but also judgment in unclear environments. It requires listening to customers, reading operational constraints, adapting quickly, and turning messy workflows into usable systems. AI tools deployed into customer environments will face the same conditions: incomplete context, shifting requirements, unclear ownership, legacy systems, and people under pressure.",
+  "The future of reliable AI will not be built only in clean test environments. It will require people who understand models, but also people who understand what happens when software meets a real site, a real customer, a broken handoff, and a clock that is already running. Reliable AI depends on that bridge. It depends on systems that know when to help, when to ask, when to slow down, and when to escalate.",
+];
+
 const defaultGptAvatarUrl =
   "https://techsgt.com/wp-content/uploads/2026/05/Alex-Avatar.png";
 
@@ -713,12 +729,42 @@ const projectPages: ProjectProfilePageContent[] = [
         ],
       },
       {
+        title: "Technical Proof: Agent Reliability Field Test",
+        paragraphs: [
+          "Scott built a lightweight Python reliability test harness to evaluate how AI assistants respond to ambiguous, high-stakes field deployment scenarios. The project tests whether an assistant avoids guessing, asks for missing information, identifies failure modes, recommends human confirmation, and escalates when risk is high.",
+          "Proof details: 8 field scenarios tested, 8 passed, and 0 failed.",
+          "Scenario themes: undocumented network closets, mislabeled ports, POS outage, camera system outage, fiber handoff ambiguity, conflicting remote instructions, access control failure, and risky change approval without onsite validation.",
+          "Focus areas: AI reliability, ambiguity handling, human-in-the-loop escalation, unsafe certainty detection, and failure-mode awareness.",
+          "This is technical proof that Scott can translate field deployment reality into AI safety and reliability evaluation logic.",
+        ],
+        links: [
+          {
+            label: "View GitHub Reliability Test",
+            href: "https://github.com/cypherpunk89/scott-fde-splash/tree/main/agent-reliability-field-test",
+          },
+        ],
+      },
+      {
         title: "Closing Statement",
         paragraphs: [
           "The goal is to connect real operational complexity with practical AI system design, especially in places where reliability depends on communication, context, and disciplined handoffs.",
         ],
       },
     ],
+    writingSample: {
+      tag: "Operational AI Reliability",
+      title: "Why AI Systems Fail Quietly in Ambiguous Environments",
+      intro:
+        "A deployment-focused writing sample on why AI reliability has to be tested against incomplete documentation, field pressure, uncertain handoffs, and human-in-the-loop escalation.",
+      quotes: [
+        "The most dangerous failure is often the one that sounds certain while quietly being wrong.",
+        "Reliable AI depends on systems that know when to help, when to ask, when to slow down, and when to escalate.",
+      ],
+      connection:
+        "This piece connects Scott's Python reliability harness to field deployment environments, human-in-the-loop systems, and the practical problem of keeping AI useful without letting it guess past missing context.",
+      articleParagraphs: aiReliabilityWritingSample,
+      downloadLabel: "Download PDF (coming soon)",
+    },
   },
   {
     path: "/openai-fde",

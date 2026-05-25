@@ -42,6 +42,16 @@ type DirectorySection = {
   }[];
 };
 
+type WritingSample = {
+  tag: string;
+  title: string;
+  intro: string;
+  quotes: string[];
+  connection: string;
+  articleParagraphs: string[];
+  downloadLabel?: string;
+};
+
 export type ProjectProfilePageContent = {
   path: string;
   title: string;
@@ -57,6 +67,7 @@ export type ProjectProfilePageContent = {
   categorySections?: CategorySection[];
   copySections: CopySection[];
   directorySection?: DirectorySection;
+  writingSample?: WritingSample;
   quote?: string;
 };
 
@@ -163,6 +174,8 @@ export function ProjectHeroVideo({
 }
 
 export default function ProjectProfilePage({ content }: ProjectProfilePageProps) {
+  const [writingSampleOpen, setWritingSampleOpen] = useState(false);
+
   useEffect(() => {
     const nextTitle = `${content.title} | Scott Jewett`;
     const previousTitle = document.title;
@@ -284,6 +297,51 @@ export default function ProjectProfilePage({ content }: ProjectProfilePageProps)
           ) : null}
         </section>
       ))}
+
+      {content.writingSample ? (
+        <section className="projectDetailSection writingSampleSection">
+          <div className="writingSampleHeader">
+            <span className="writingSampleTag">{content.writingSample.tag}</span>
+            <h2>{content.writingSample.title}</h2>
+            <p>{content.writingSample.intro}</p>
+          </div>
+
+          <div className="writingQuoteGrid">
+            {content.writingSample.quotes.map((quote) => (
+              <blockquote key={quote}>{quote}</blockquote>
+            ))}
+          </div>
+
+          <p className="writingSampleConnection">
+            {content.writingSample.connection}
+          </p>
+
+          <div className="writingSampleActions">
+            <button
+              className="writingSampleToggle"
+              type="button"
+              aria-expanded={writingSampleOpen}
+              onClick={() => setWritingSampleOpen((current) => !current)}
+            >
+              {writingSampleOpen ? "Hide Full Article" : "Read Full Article"}
+            </button>
+
+            {content.writingSample.downloadLabel ? (
+              <button className="writingSampleDownload" type="button" disabled>
+                {content.writingSample.downloadLabel}
+              </button>
+            ) : null}
+          </div>
+
+          {writingSampleOpen ? (
+            <article className="writingSampleArticle">
+              {content.writingSample.articleParagraphs.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </article>
+          ) : null}
+        </section>
+      ) : null}
 
       {content.directorySection ? (
         <section className="projectDetailSection">
