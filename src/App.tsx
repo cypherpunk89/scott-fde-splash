@@ -167,7 +167,7 @@ const resumeExperience: ExperienceEntry[] = [
     dates: "11/03/1988 - 11/03/1996",
     location: "West Palm Beach, FL / Desert Shield & Desert Storm",
     text: "Served as Field Radio Operator with Task Force Sheppard, 2nd ANGLICO, 1st Surveillance, Reconnaissance & Intelligence Group, I MEF. Operated PLRS, DCTs, tactical facsimile systems, RF communications, and cryptographic frequency-hopping equipment during Desert Shield/Storm. Awarded Navy Achievement Medal for heroic achievement and superior performance of duties.",
-    proofLabel: "View related proof",
+    proofLabel: "U.S. Marines in the Persian Gulf",
     proofHref:
       "https://techsgt.com/wp-content/uploads/2026/05/MARINE-COMMS-IN-DESERT-SHIELD-AND-DESERT-STORM.pdf",
   },
