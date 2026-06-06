@@ -1132,16 +1132,6 @@ export default function App() {
           takes to get systems working again.
         </p>
 
-        <a
-          className="badge badgeLink resumeHeroLink"
-          href="https://techsgt.com/wp-content/uploads/2026/05/Scott-Jewett-Resume.pdf"
-          target="_blank"
-          rel="noreferrer"
-          aria-label="Open Scott Jewett resume"
-        >
-          Resume
-        </a>
-
         <div className="dischargeGrid heroDischargeGrid">
           <div className="dischargeStack" aria-label="USMC honorable discharge records">
             {dischargeDocuments.slice(0, 2).map((document, index) => (
